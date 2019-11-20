@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: privat25_development
+  database: privat25_dev
+  username: <%= ENV['PRIVAT25_DATABASE_USERNAME'] %>
+  password: <%= ENV['PRIVAT25_DATABASE_PASSWORD'] %>
+  host: localhost
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
