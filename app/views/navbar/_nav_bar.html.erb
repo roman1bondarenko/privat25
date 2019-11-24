@@ -1,15 +1,20 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="/">
-    <img src="<%= asset_path "logo.png" %>" alt="Logo" style="width:25%;" >
+    <img src="<%= asset_path "logo.png" %>" alt="Logo" style="width:25%;">
   </a>
   <form class="form-inline">
-    <a class="btn btn-outline-primary" href="/login" role="button">
-      Login
-    </a>
-    <div style="padding-left: 10px;">
-      <a class="btn btn-outline-success" href="/signup" role="button">
-        Sign Up
+    <% if user_signed_in? %>
+      <a class="nav-item" style="margin-right: 20px"> Вы вошли как <%= get_current_user_name %></a>
+      <a class="btn btn-outline-primary" <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <% else %>
+      <a class="btn btn-outline-primary" href="/users/sign_in" role="button">
+        Login
       </a>
-    </div>
+      <div style="padding-left: 10px;">
+        <a class="btn btn-outline-success" href="/users/sign_up" role="button">
+          Sign Up
+        </a>
+      </div>
+    <% end %>
   </form>
 </nav>
