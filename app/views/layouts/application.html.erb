@@ -14,11 +14,9 @@
 <%= render 'navbar/nav_bar' %>
 
 <div class="container">
-<!--  <p class="notice"><%#= notice %></p>-->
-<!--  <p class="alert"><%#= alert %></p>-->
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= yield %>
-<!--  TODO add style to center bottom-->
-<!--  <p class="mt-3 text-muted">&copy; <%#= Time.new.year %></p>-->
 </div>
 </body>
 </html>
