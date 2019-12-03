@@ -69,3 +69,6 @@ gem 'bootstrap', '~> 4.3.1'
 
 # jquery lib for front end
 gem 'jquery-rails'
+
+# localization
+gem 'rails-i18n', '~> 5.1'
