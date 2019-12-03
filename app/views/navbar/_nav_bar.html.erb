@@ -4,15 +4,15 @@
   </a>
   <form class="form-inline">
     <% if user_signed_in? %>
-      <a class="nav-item" style="margin-right: 20px"> Вы вошли как <%= get_current_user_name %></a>
-      <a class="btn btn-outline-primary" <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <a class="nav-item" style="margin-right: 20px"> <%= t 'nav-bar.login-as' %>  <%= get_current_user_name %></a>
+      <a class="btn btn-outline-primary" <%= link_to(t('nav-bar.logout'), destroy_user_session_path, method: :delete) %>
     <% else %>
       <a class="btn btn-outline-primary" href="/users/sign_in" role="button">
-        Sign In
+        <%= t 'nav-bar.sign-in' %>
       </a>
       <div style="padding-left: 10px;">
         <a class="btn btn-outline-success" href="/users/sign_up" role="button">
-          Sign Up
+          <%= t 'nav-bar.sign-up' %>
         </a>
       </div>
     <% end %>

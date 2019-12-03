@@ -31,6 +31,10 @@
 
 en:
   nav-bar:
+    login-as: "You login as"
+    sign-in: "Sign in"
+    sign-up: "Sign up"
+    logout: "Logout"
   home:
     describe-title: "Bank payment system Privat25"
     describe: "User registration, opening credit, deposit accounts. Users have the ability to send funds from account to account.
