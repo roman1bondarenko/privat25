@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     resources 'user'
     devise_for :users, controllers: { registrations: 'registrations' }
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    root to: 'home#index'
   end
-  get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '/:locale' => 'home#index'
   get '', to: redirect("/#{I18n.default_locale}/")
 end
