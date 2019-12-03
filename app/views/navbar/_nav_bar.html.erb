@@ -3,17 +3,18 @@
     <img src="<%= asset_path "logo.png" %>" alt="Logo" style="width:25%;">
   </a>
   <form class="form-inline">
+    <div class="nav-section" style="margin-right: 20px">
+      <%= link_to_unless_current "English", locale: "en" %> |
+      <%= link_to_unless_current "Русский", locale: "ru" %>
+    </div>
+    <br>
     <% if user_signed_in? %>
       <a class="nav-item" style="margin-right: 20px"> <%= t 'nav-bar.login-as' %>  <%= get_current_user_name %></a>
       <a class="btn btn-outline-primary" <%= link_to(t('nav-bar.logout'), destroy_user_session_path, method: :delete) %>
     <% else %>
-      <a class="btn btn-outline-primary" href="/users/sign_in" role="button">
-        <%= t 'nav-bar.sign-in' %>
-      </a>
+      <%= link_to(t('nav-bar.sign-in'), new_user_session_path, class: "btn btn-outline-primary", role: "button") %>
       <div style="padding-left: 10px;">
-        <a class="btn btn-outline-success" href="/users/sign_up" role="button">
-          <%= t 'nav-bar.sign-up' %>
-        </a>
+        <%= link_to(t('nav-bar.sign-up'), new_user_registration_path, class: "btn btn-outline-success", role: "button") %>
       </div>
     <% end %>
   </form>
