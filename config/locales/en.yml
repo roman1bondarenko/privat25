@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  nav-bar:
+  home:
+    describe-title: "Bank payment system Privat25"
+    describe: "User registration, opening credit, deposit accounts. Users have the ability to send funds from account to account.
+                    Download billing statements."
+    nav-button-text: "Go to cabinet"
