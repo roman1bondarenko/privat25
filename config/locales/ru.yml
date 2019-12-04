@@ -14,3 +14,8 @@ ru:
     confirmations:
       title: "Отправить повторно инструкции"
       button_resend: "Отправить"
+    mailer:
+      confirmation_instructions:
+        welcome: "Приветствуем"
+        instruction: "Вы можете подтвердить свою почту по ссылку ниже"
+        confirm_link_title: "Подтвердить мой аккаунт"

@@ -66,3 +66,9 @@ ru:
         few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+  forms:
+    mailer:
+      confirmation_instructions:
+        welcome: ""
+        instruction: ""
+        confirm_link_title: ""

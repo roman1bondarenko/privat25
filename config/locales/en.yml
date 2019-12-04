@@ -46,6 +46,9 @@ en:
       button_resend: "Resend"
     mailer:
       confirmation_instructions:
+        welcome: "Welcome"
+        instruction: "You can confirm your account email through the link below:"
+        confirm_link_title: "Confirm my account"
       email_changed:
       password_change:
       reset_password:
