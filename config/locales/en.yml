@@ -40,3 +40,26 @@ en:
     describe: "User registration, opening credit, deposit accounts. Users have the ability to send funds from account to account.
                     Download billing statements."
     nav-button-text: "Go to cabinet"
+  forms:
+    confirmations:
+      title: "Resend confirmation instructions"
+      button_resend: "Resend"
+    mailer:
+      confirmation_instructions:
+      email_changed:
+      password_change:
+      reset_password:
+      unlock_instructions:
+    password:
+      edit:
+      new:
+    registrations:
+      edit:
+      new:
+    sessions:
+      new:
+    shared:
+      error_messages:
+      links:
+    unlocks:
+      new:

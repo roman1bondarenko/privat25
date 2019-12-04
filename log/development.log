@@ -8640,3 +8640,27 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-12-03 19:18:29 +0200
+Started GET "/en/" for 127.0.0.1 at 2019-12-03 19:18:29 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/navbar/_nav_bar.html.erb:11
+  Rendered navbar/_nav_bar.html.erb (3.8ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-03 19:25:55 +0200
+Started GET "/en/" for 127.0.0.1 at 2019-12-03 19:25:55 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/navbar/_nav_bar.html.erb:11
+  Rendered navbar/_nav_bar.html.erb (4.3ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.8ms)
+
+

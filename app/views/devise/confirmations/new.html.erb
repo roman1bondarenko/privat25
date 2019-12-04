@@ -1,5 +1,5 @@
 <div class="login-form">
-  <h4 class="modal-title">Resend confirmation instructions</h4>
+  <h4 class="modal-title"> <%= t 'forms.confirmations.title' %></h4>
 
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {method: :post, class: "form-sign"}) do |f| %>
 
@@ -9,7 +9,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Resend confirmation instructions", class: "btn btn-lg btn-primary btn-block"%>
+      <%= f.submit t 'forms.confirmations.button_resend', class: "btn btn-lg btn-primary btn-block"%>
     </div>
   <% end %>
 
