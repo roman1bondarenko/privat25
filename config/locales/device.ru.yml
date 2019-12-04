@@ -72,3 +72,6 @@ ru:
         welcome: ""
         instruction: ""
         confirm_link_title: ""
+      email_changed:
+        new_mail: ""
+        old_mail: ""

@@ -50,6 +50,9 @@ en:
         instruction: "You can confirm your account email through the link below:"
         confirm_link_title: "Confirm my account"
       email_changed:
+        greeting: "Hello"
+        new_mail: "We're contacting you to notify you that your email is being changed to"
+        old_mail: "We're contacting you to notify you that your email has been changed to"
       password_change:
       reset_password:
       unlock_instructions:
