@@ -11,14 +11,17 @@ ru:
                    Скачивать выписки счетов."
     nav-button-text: "Перейти в кабинет"
   forms:
+    welcome: "Приветствуем"
+    greeting: "Привет"
     confirmations:
       title: "Отправить повторно инструкции"
       button_resend: "Отправить"
     mailer:
       confirmation_instructions:
-        welcome: "Приветствуем"
         instruction: "Вы можете подтвердить свою почту по ссылку ниже"
         confirm_link_title: "Подтвердить мой аккаунт"
       email_changed:
         new_mail: "Мы сообщим вам, что ваш email будет изменен на"
         old_mail: "Мы сообщим вам, что ваш email был изменен на"
+      password_change:
+        info: ""

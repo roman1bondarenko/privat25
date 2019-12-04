@@ -41,19 +41,20 @@ en:
                     Download billing statements."
     nav-button-text: "Go to cabinet"
   forms:
+    greeting: "Hello"
+    welcome: "Welcome"
     confirmations:
       title: "Resend confirmation instructions"
       button_resend: "Resend"
     mailer:
       confirmation_instructions:
-        welcome: "Welcome"
         instruction: "You can confirm your account email through the link below:"
         confirm_link_title: "Confirm my account"
       email_changed:
-        greeting: "Hello"
         new_mail: "We're contacting you to notify you that your email is being changed to"
         old_mail: "We're contacting you to notify you that your email has been changed to"
       password_change:
+        info: "We're contacting you to notify you that your password has been changed."
       reset_password:
       unlock_instructions:
     password:
