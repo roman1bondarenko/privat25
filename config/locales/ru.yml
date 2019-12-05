@@ -25,3 +25,5 @@ ru:
         old_mail: "Мы сообщим вам, что ваш email был изменен на"
       password_change:
         info: ""
+      reset_password:
+        message: ""
