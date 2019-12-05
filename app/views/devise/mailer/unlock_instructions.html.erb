@@ -1,7 +1,7 @@
-<p>Hello <%= @resource.email %>!</p>
+<p><%= t('forms.greeting').join("#{ @resource.email}")%>!</p>
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+<p> <%= t('forms.mailer.unlock_instructions.message') %></p>
 
-<p>Click the link below to unlock your account:</p>
+<p> <%= t('forms.mailer.unlock_instructions.message_before_link') %></p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>
+<p><%= link_to t('forms.mailer.unlock_instructions.unlock_url_text'), unlock_url(@resource, unlock_token: @token) %></p>

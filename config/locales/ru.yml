@@ -27,3 +27,7 @@ ru:
         info: ""
       reset_password:
         message: ""
+      unlock_instructions:
+        message: ""
+        message_before_link: ""
+        unlock_url_text: ""

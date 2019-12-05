@@ -60,6 +60,9 @@ en:
         info: "If you didn't request this, please ignore this email.
                Your password won't change until you access the link above and create a new one."
       unlock_instructions:
+        message: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        message_before_link: "Click the link below to unlock your account:"
+        unlock_url_text: "Unlock my account"
     password:
       edit:
       new:
