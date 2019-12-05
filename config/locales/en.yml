@@ -65,7 +65,13 @@ en:
         unlock_url_text: "Unlock my account"
     password:
       edit:
+        title: "Change your password"
+        password_label: "New password"
+        password_confirm_label: "Confirm new password"
+        button_text: "Confirm new password"
       new:
+        title: "Forgot your password?"
+        button_text: "Send reset pass instructions"
     registrations:
       edit:
       new:

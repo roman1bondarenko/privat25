@@ -31,3 +31,12 @@ ru:
         message: ""
         message_before_link: ""
         unlock_url_text: ""
+    password:
+      edit:
+        title: ""
+        password_label: ""
+        password_confirm_label: ""
+        button_text: ""
+      new:
+        title: ""
+        button_text: ""

@@ -1,5 +1,5 @@
 <div class="login-form">
-<h4 class="modal-title">Forgot your password?</h4>
+<h4 class="modal-title"><%= t('forms.password.new.title') %></h4>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post, class: "form-sign" }) do |f| %>
 
@@ -9,7 +9,7 @@
   </div>
   <br>
   <div class="actions">
-    <%= f.submit "Send reset pass instructions", class: "btn btn-lg btn-primary btn-block" %>
+    <%= f.submit t('forms.password.new.button_text'), class: "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>
 
