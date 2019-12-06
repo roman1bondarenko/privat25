@@ -1,18 +1,5 @@
 ru:
-  nav-bar:
-      login-as: "Вы вошли как"
-      sign-in: "Вход"
-      sign-up: "Регистрация"
-      logout: "Выход"
-  home:
-    describe-title: "Банковская система платежей Приват25"
-    describe: "Регистрация пользователей, открытие кредитных, депозитных счетов.
-                   Пользователи имеют возможность, отправлять средства со счета, на счет.
-                   Скачивать выписки счетов."
-    nav-button-text: "Перейти в кабинет"
   forms:
-    welcome: "Приветствуем"
-    greeting: "Привет"
     confirmations:
       title: "Отправить повторно инструкции"
       button_resend: "Отправить"
@@ -40,3 +27,7 @@ ru:
       new:
         title: ""
         button_text: ""
+    registrations:
+      new:
+        title: ""
+        chars_min: ""

@@ -1,5 +1,5 @@
 <div class="login-form">
-  <h4 class="modal-title">Sign up</h4>
+  <h4 class="modal-title"><%= t('forms.registrations.new.title') %></h4>
 
   <%= form_for(resource, as: resource_name, html: {class: "form-sign"}, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -22,7 +22,7 @@
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%= @minimum_password_length %> <%= t('forms.registrations.new.chars_min') %>)</em>
       <% end %><br/>
       <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
     </div>

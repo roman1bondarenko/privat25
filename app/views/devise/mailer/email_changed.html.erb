@@ -1,4 +1,4 @@
-<p><%= t('forms.greeting').join(" #{@email}") %>!</p>
+<p><%= t('greeting').join(" #{@email}") %>!</p>
 
 <% if @resource.try(:unconfirmed_email?) %>
   <p><%= t('forms.mailer.email_changed.new_mail').join(" #{@resource.unconfirmed_email}")%>.</p>
