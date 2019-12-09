@@ -34,6 +34,7 @@ en:
       new:
         title: "Sign up"
         chars_min: "characters minimum"
+        password_confirmation: "Password confirmation"
     sessions:
       new:
         login_title: "Login to Your Account"

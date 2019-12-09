@@ -29,8 +29,9 @@ ru:
         button_text: ""
     registrations:
       new:
-        title: ""
-        chars_min: ""
+        title: "Регистрация нового аккаунта"
+        chars_min: "символов минимум"
+        password_confirmation: "Подтверждение пароля"
     sessions:
       new:
         login_title: "Вход в аккаунт"
