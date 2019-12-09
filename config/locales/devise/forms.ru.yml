@@ -31,3 +31,6 @@ ru:
       new:
         title: ""
         chars_min: ""
+    sessions:
+      new:
+        login_title: "Вход в аккаунт"

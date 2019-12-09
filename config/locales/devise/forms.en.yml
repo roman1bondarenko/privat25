@@ -36,6 +36,7 @@ en:
         chars_min: "characters minimum"
     sessions:
       new:
+        login_title: "Login to Your Account"
     shared:
       error_messages:
       links:

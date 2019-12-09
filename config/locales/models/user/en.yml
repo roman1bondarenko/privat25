@@ -1,1 +1,11 @@
 en:
+  activerecord:
+    attributes:
+      user:
+        first_name: "First name"
+        second_name: "Second name"
+        password: "Password"
+        email: "Email"
+        phone: "Phone"
+        birthday: "Birthday"
+        gender: "Gender"

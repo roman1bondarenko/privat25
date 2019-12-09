@@ -1,1 +1,11 @@
 ru:
+  activerecord:
+    attributes:
+      user:
+        first_name: "Имя"
+        second_name: "Фамилия"
+        password: "Пароль"
+        email: "Почта"
+        phone: "Телефон"
+        birthday: "Дата рождения"
+        gender: "Пол"
