@@ -1,22 +1,47 @@
-<div class="login-form">
-  <h4 class="modal-title"><%= t('forms.registrations.new.title') %></h4>
-
-  <%= form_for(resource, as: resource_name, html: {class: "form-sign"}, url: registration_path(resource_name)) do |f| %>
+<div class="d-flex justify-content-center">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+    <br>
+    <h4 style="text-align: center"><%= t('forms.registrations.new.title') %></h4>
+    <div class="form-row">
+      <div class="col-md-6">
+        <%= f.label :first_name %><br/>
+        <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "First name" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :first_name %><br/>
-      <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "First name" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :second_name %><br/>
-      <%= f.text_field :second_name, class: "form-control", autofocus: true, autocomplete: "Second name" %>
+      <div class="col-md-6">
+        <%= f.label :second_name %><br/>
+        <%= f.text_field :second_name, class: "form-control", autofocus: true, autocomplete: "Second name" %>
+      </div>
     </div>
 
     <div class="field">
       <%= f.label :email %><br/>
       <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="row row-space  ">
+      <!--    TODO replace all email methods-->
+      <div class="col-md-6">
+        <%= f.label :phone %><br/>
+        <%= f.phone_field :email, class: "form-control", autofocus: true, autocomplete: "phone" %>
+      </div>
+
+      <div class="col-md-6">
+        <div class="input-group">
+          <label class="label">Gender</label>
+          <div class="p-t-10">
+            <label class="radio-container m-r-45">Male
+              <input type="radio" checked="checked" name="gender">
+              <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Female
+              <input type="radio" name="gender">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="field">
@@ -33,7 +58,7 @@
     </div>
     <br>
     <div class="actions">
-      <%= f.submit t('sign-up') ,class: "btn btn-lg btn-primary btn-block"%>
+      <%= f.submit t('sign-up'), class: "btn btn-lg btn-primary btn-block" %>
     </div>
   <% end %>
 
