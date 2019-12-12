@@ -72,3 +72,6 @@ gem 'jquery-rails'
 
 # localization
 gem 'rails-i18n', '~> 5.1'
+
+# library for bulk inserting data using ActiveRecord
+gem 'activerecord-import'
