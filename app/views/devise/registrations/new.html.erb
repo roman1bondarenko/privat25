@@ -24,12 +24,12 @@
       <!--    TODO replace all email methods-->
       <div class="col-md-6">
         <%= f.label :phone %><br/>
-        <%= f.phone_field :email, class: "form-control", autofocus: true, autocomplete: "phone" %>
+        <%= f.text_field :phone, class: "form-control", autofocus: true, autocomplete: "phone" %>
       </div>
 
       <div class="col-md-6">
         <div class="input-group">
-          <label class="label">Gender</label>
+          <%= f.label :gender %><br/>
           <div class="p-t-10">
             <label class="radio-container m-r-45">Male
               <input type="radio" checked="checked" name="gender">
