@@ -9,3 +9,6 @@ en:
         phone: "Phone"
         birthday: "Birthday"
         gender: "Gender"
+        city: "City"
+        male: "Male"
+        female: "Female"

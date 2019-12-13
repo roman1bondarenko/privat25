@@ -9,3 +9,6 @@ ru:
         phone: "Телефон"
         birthday: "Дата рождения"
         gender: "Пол"
+        city: "Город"
+        male: "Мужской"
+        female: "Женский"

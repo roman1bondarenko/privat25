@@ -20,28 +20,48 @@
       <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
     </div>
 
+    <div class="form-row">
+
+      <div class="col-md-6">
+        <%= f.label t('country') %><br/>
+        <%= f.select :second_name,[], {}, class:"custom-select" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.label :city %><br/>
+        <%= f.select :city, [], {}, {:class => "custom-select"} %>
+      </div>
+
+    </div>
+
+
+
     <div class="row row-space  ">
       <!--    TODO replace all email methods-->
-      <div class="col-md-6">
+      <div class="col-md-4">
         <%= f.label :phone %><br/>
         <%= f.text_field :phone, class: "form-control", autofocus: true, autocomplete: "phone" %>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-4">
+        <%= f.label :birthday %><br/>
+        <%= f.date_field :birthday, class: "form-control", autofocus: true, autocomplete: "birthday" %>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.label :gender %><br/>
         <div class="input-group">
-          <%= f.label :gender %><br/>
-          <div class="p-t-10">
-            <label class="radio-container m-r-45">Male
-              <input type="radio" checked="checked" name="gender">
-              <span class="checkmark"></span>
+          <div class="p-t-9">
+
+            <label class="radio-container m-r-45">
+              <%= f.radio_button :gender, User.male%> <%= t('activerecord.attributes.user.male') %><br>
+              <%= f.radio_button :gender, User.female%> <%= t('activerecord.attributes.user.female') %><br>
             </label>
-            <label class="radio-container">Female
-              <input type="radio" name="gender">
-              <span class="checkmark"></span>
-            </label>
+
           </div>
         </div>
       </div>
+
     </div>
 
     <div class="field">
