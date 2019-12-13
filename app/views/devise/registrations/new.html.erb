@@ -6,30 +6,33 @@
     <div class="form-row">
       <div class="col-md-6">
         <%= f.label :first_name %><br/>
-        <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "First name" %>
+        <%= f.text_field :first_name, class: "form-control",
+                         :required => true, autofocus: true, autocomplete: "First name" %>
       </div>
 
       <div class="col-md-6">
         <%= f.label :second_name %><br/>
-        <%= f.text_field :second_name, class: "form-control", autofocus: true, autocomplete: "Second name" %>
+        <%= f.text_field :second_name, class: "form-control",
+                         :required => true, autofocus: true, autocomplete: "Second name" %>
       </div>
     </div>
 
     <div class="field">
       <%= f.label :email %><br/>
-      <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, class: "form-control",
+                        :required => true, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="form-row">
 
       <div class="col-md-6">
         <%= f.label t('country') %><br/>
-        <%= f.select :second_name,[], {}, class:"custom-select" %>
+        <%= f.select :second_name,[], {}, class:"custom-select", :required => true %>
       </div>
 
       <div class="col-md-6">
         <%= f.label :city %><br/>
-        <%= f.select :city, [], {}, {:class => "custom-select"} %>
+        <%= f.select :city, [], {}, class:"custom-select", :required => true %>
       </div>
 
     </div>
@@ -39,12 +42,12 @@
     <div class="row row-space  ">
       <div class="col-md-4">
         <%= f.label :phone %><br/>
-        <%= f.text_field :phone, class: "form-control", autofocus: true, autocomplete: "phone" %>
+        <%= f.text_field :phone, class: "form-control", autofocus: true, autocomplete: "phone", :required => true %>
       </div>
 
       <div class="col-md-4">
         <%= f.label :birthday %><br/>
-        <%= f.date_field :birthday, class: "form-control", autofocus: true, autocomplete: "birthday" %>
+        <%= f.date_field :birthday, class: "form-control", autofocus: true, autocomplete: "birthday", :required => true %>
       </div>
 
       <div class="col-md-4">
@@ -53,7 +56,7 @@
           <div class="p-t-9">
 
             <label class="radio-container m-r-45">
-              <%= f.radio_button :gender, User.male%> <%= t('activerecord.attributes.user.male') %><br>
+              <%= f.radio_button :gender, User.male, checked: "checked"%> <%= t('activerecord.attributes.user.male') %><br>
               <%= f.radio_button :gender, User.female%> <%= t('activerecord.attributes.user.female') %><br>
             </label>
 
@@ -68,12 +71,12 @@
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> <%= t('forms.registrations.new.chars_min') %>)</em>
       <% end %><br/>
-      <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+      <%= f.password_field :password, class: "form-control", autocomplete: "new-password", :required => true %>
     </div>
 
     <div class="field">
       <%= f.label t('forms.registrations.new.password_confirmation') %><br/>
-      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password", :required => true %>
     </div>
     <br>
     <div class="actions">
