@@ -89,3 +89,21 @@ F, [2019-11-24T18:58:03.592712 #25155] FATAL -- : [94e9db01-6cda-443c-a8e8-9f18e
 [94e9db01-6cda-443c-a8e8-9f18eb3ec7ca] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 [94e9db01-6cda-443c-a8e8-9f18eb3ec7ca] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 [94e9db01-6cda-443c-a8e8-9f18eb3ec7ca] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-12-13T15:42:23.270399 #22452]  INFO -- : [7c053cf0-2f65-4c51-b8f4-3a8c9b2545bd] Started GET "/" for 127.0.0.1 at 2019-12-13 15:42:23 +0200
+I, [2019-12-13T15:42:23.278596 #22452]  INFO -- : [1298b4f0-403a-432f-8675-a03ab66cc29f] Started GET "/en/" for 127.0.0.1 at 2019-12-13 15:42:23 +0200
+I, [2019-12-13T15:42:23.279702 #22452]  INFO -- : [1298b4f0-403a-432f-8675-a03ab66cc29f] Processing by HomeController#index as HTML
+I, [2019-12-13T15:42:23.279770 #22452]  INFO -- : [1298b4f0-403a-432f-8675-a03ab66cc29f]   Parameters: {"locale"=>"en"}
+I, [2019-12-13T15:42:23.288778 #22452]  INFO -- : [1298b4f0-403a-432f-8675-a03ab66cc29f]   Rendering home/index.html.erb within layouts/application
+I, [2019-12-13T15:42:23.289609 #22452]  INFO -- : [1298b4f0-403a-432f-8675-a03ab66cc29f]   Rendered home/index.html.erb within layouts/application (0.7ms)
+I, [2019-12-13T15:42:23.290779 #22452]  INFO -- : [1298b4f0-403a-432f-8675-a03ab66cc29f] Completed 500 Internal Server Error in 11ms
+F, [2019-12-13T15:42:23.291300 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab66cc29f]   
+F, [2019-12-13T15:42:23.291330 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab66cc29f] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2019-12-13T15:42:23.291414 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab66cc29f]      5:   <%= csrf_meta_tags %>
+[1298b4f0-403a-432f-8675-a03ab66cc29f]      6:   <%= csp_meta_tag %>
+[1298b4f0-403a-432f-8675-a03ab66cc29f]      7: 
+[1298b4f0-403a-432f-8675-a03ab66cc29f]      8:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[1298b4f0-403a-432f-8675-a03ab66cc29f]      9:   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+[1298b4f0-403a-432f-8675-a03ab66cc29f]     10: </head>
+[1298b4f0-403a-432f-8675-a03ab66cc29f]     11: 
+F, [2019-12-13T15:42:23.291435 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab66cc29f]   
+F, [2019-12-13T15:42:23.291458 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab66cc29f] app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__356085362626962409_47035137831440'
