@@ -27,7 +27,8 @@
 
       <div class="col-md-6">
         <%= f.label t('country') %><br/>
-        <%= f.select :second_name,[], {}, class:"custom-select", :required => true %>
+        <%= select_tag '', options_from_collection_for_select(Country.all, :id, :name),
+                       class:"custom-select", :required => true %>
       </div>
 
       <div class="col-md-6">
@@ -36,8 +37,6 @@
       </div>
 
     </div>
-
-
 
     <div class="row row-space  ">
       <div class="col-md-4">
