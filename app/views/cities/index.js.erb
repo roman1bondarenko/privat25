@@ -1,0 +1,9 @@
+var city = document.getElementById("user_city");
+
+while (city.firstChild) {
+    city.removeChild(city.firstChild);
+}
+
+<% @cities.each do |city| %>
+  city.options[city.options.length] = new Option('<%= city.name %>', '<%= city.id %>')
+<% end %>

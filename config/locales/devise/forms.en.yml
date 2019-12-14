@@ -35,6 +35,8 @@ en:
         title: "Sign up"
         chars_min: "characters minimum"
         password_confirmation: "Password confirmation"
+        select_country: "Select country"
+        select_city: "Select city"
     sessions:
       new:
         login_title: "Login to Your Account"

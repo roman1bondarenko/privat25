@@ -27,8 +27,8 @@
 
       <div class="col-md-6">
         <%= f.label t('country') %><br/>
-        <%= select_tag '', options_from_collection_for_select(Country.all, :id, :name),
-                       class:"custom-select", :required => true %>
+        <%= select_tag 'country_id', options_from_collection_for_select(Country.all, :id, :name),
+                       class:"custom-select", :required => true, :prompt => t('forms.registrations.new.select_country')%>
       </div>
 
       <div class="col-md-6">
@@ -55,8 +55,8 @@
           <div class="p-t-9">
 
             <label class="radio-container m-r-45">
-              <%= f.radio_button :gender, User.male, checked: "checked"%> <%= t('activerecord.attributes.user.male') %><br>
-              <%= f.radio_button :gender, User.female%> <%= t('activerecord.attributes.user.female') %><br>
+              <%= f.radio_button :gender, User.genders[:male], checked: "checked"%> <%= t('activerecord.attributes.user.male') %><br>
+              <%= f.radio_button :gender, User.genders[:female] %> <%= t('activerecord.attributes.user.female') %><br>
             </label>
 
           </div>

@@ -32,6 +32,8 @@ ru:
         title: "Регистрация нового аккаунта"
         chars_min: "символов минимум"
         password_confirmation: "Подтверждение пароля"
+        select_country: "Выберите страну"
+        select_city: "Выберите город"
     sessions:
       new:
         login_title: "Вход в аккаунт"
