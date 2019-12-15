@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyText
-  short_code: MyText
-  phone_code: MyText
+ukraine:
+  name: Ukraine
+  short_code: UA
+  phone_code: +380
 
-two:
-  name: MyText
-  short_code: MyText
-  phone_code: MyText
+estonia:
+  name: Estonia
+  short_code: EE
+  phone_code: +372

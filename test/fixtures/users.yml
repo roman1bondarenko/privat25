@@ -5,9 +5,18 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  email: tratat@gmail.com
-# column: value
-#
+  first_name: Maria
+  second_name: Bondarenko
+  email: maria_bondarenko@gmail.com
+  city: one
+  gender: 1
+  birthday: 1998-12-12
+  phone: 0983452176
 two:
-  email: trat2at@gmail.com
-# column: value
+  first_name: Roman
+  second_name: Bondarenko
+  email: roman_bondarenko@gmail.com
+  city: two
+  gender: 0
+  birthday: 1995-11-12
+  phone: 0990012233
