@@ -1,0 +1,415 @@
+  [1m[35m (5009.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "privat25_test"[0m
+  [1m[35m (5008.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "privat25_test"[0m
+  [1m[35m (5009.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "privat25_test"[0m
+  [1m[35m (5008.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "privat25_test"[0m
+  [1m[35m (5012.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "privat25_test"[0m
+  [1m[35m (5009.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "privat25_test"[0m
+  [1m[35m (5009.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "privat25_test"[0m
+  [1m[35m (85.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (98.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7925793018725448825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20191120135035)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (124.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "second_name" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (31.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191120135035"]]
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddRoleToUser (20191125143108)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (163.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" integer DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191125143108"]]
+  [1m[35m (14.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CancelAddingRoleColumn (20191202152655)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "role"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191202152655"]]
+  [1m[35m (24.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCountries (20191211132238)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (84.4ms)[0m  [1m[35mCREATE TABLE "countries" ("id" bigserial primary key, "name" text, "short_code" text, "phone_code" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191211132238"]]
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCities (20191211133308)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (77.2ms)[0m  [1m[35mCREATE TABLE "cities" ("id" bigserial primary key, "country_id" bigint, "name" text, "short_name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_996e05be41"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+)[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCREATE  INDEX  "index_cities_on_country_id" ON "cities"  ("country_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191211133308"]]
+  [1m[35m (10.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCityToUser (20191211134930)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "city_id" bigint[0m
+  [1m[35m (32.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_city_id" ON "users"  ("city_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_9c7442481a"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191211134930"]]
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveShortNameFromCity (20191211145849)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cities" DROP COLUMN "short_name"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191211145849"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNewAttributesToUser (20191212201335)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (187.1ms)[0m  [1m[35mALTER TABLE "users" ADD "gender" integer DEFAULT 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "birthday" date[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "is_deleted" boolean[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "is_blocked" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191212201335"]]
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhoneToUser (20191212202819)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "phone" text[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191212202819"]]
+  [1m[35m (28.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-12-15 13:09:07.899987"], ["updated_at", "2019-12-15 13:09:07.899987"]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7925793018725448825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (20.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (3.4ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:13:50.698844', '2019-12-15 13:13:50.698844'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:13:50.698844', '2019-12-15 13:13:50.698844');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:13:50.711734', '2019-12-15 13:13:50.711734'), (298486374, 298486374, 'MyText', '2019-12-15 13:13:50.711734', '2019-12-15 13:13:50.711734');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:13:50.721865', '2019-12-15 13:13:50.721865', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:13:50.721865', '2019-12-15 13:13:50.721865', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.4ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:13:50.829792', '2019-12-15 13:13:50.829792'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:13:50.829792', '2019-12-15 13:13:50.829792');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:13:50.832343', '2019-12-15 13:13:50.832343'), (298486374, 298486374, 'MyText', '2019-12-15 13:13:50.832343', '2019-12-15 13:13:50.832343');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:13:50.835101', '2019-12-15 13:13:50.835101', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:13:50.835101', '2019-12-15 13:13:50.835101', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.4ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:17:28.451984', '2019-12-15 13:17:28.451984'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:17:28.451984', '2019-12-15 13:17:28.451984');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:17:28.458520', '2019-12-15 13:17:28.458520'), (298486374, 298486374, 'MyText', '2019-12-15 13:17:28.458520', '2019-12-15 13:17:28.458520');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:17:28.464152', '2019-12-15 13:17:28.464152', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:17:28.464152', '2019-12-15 13:17:28.464152', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.6ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:23:40.111312', '2019-12-15 13:23:40.111312'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:23:40.111312', '2019-12-15 13:23:40.111312');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:23:40.117844', '2019-12-15 13:23:40.117844'), (298486374, 298486374, 'MyText', '2019-12-15 13:23:40.117844', '2019-12-15 13:23:40.117844');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:23:40.123439', '2019-12-15 13:23:40.123439', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:23:40.123439', '2019-12-15 13:23:40.123439', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:23:40.174569', '2019-12-15 13:23:40.174569'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:23:40.174569', '2019-12-15 13:23:40.174569');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:23:40.176080', '2019-12-15 13:23:40.176080'), (298486374, 298486374, 'MyText', '2019-12-15 13:23:40.176080', '2019-12-15 13:23:40.176080');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:23:40.177517', '2019-12-15 13:23:40.177517', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:23:40.177517', '2019-12-15 13:23:40.177517', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:23:40.188813', '2019-12-15 13:23:40.188813'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:23:40.188813', '2019-12-15 13:23:40.188813');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:23:40.190246', '2019-12-15 13:23:40.190246'), (298486374, 298486374, 'MyText', '2019-12-15 13:23:40.190246', '2019-12-15 13:23:40.190246');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:23:40.192272', '2019-12-15 13:23:40.192272', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:23:40.192272', '2019-12-15 13:23:40.192272', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:26:11.689430', '2019-12-15 13:26:11.689430'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:26:11.689430', '2019-12-15 13:26:11.689430');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:26:11.696261', '2019-12-15 13:26:11.696261'), (298486374, 298486374, 'MyText', '2019-12-15 13:26:11.696261', '2019-12-15 13:26:11.696261');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:26:11.701840', '2019-12-15 13:26:11.701840', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:26:11.701840', '2019-12-15 13:26:11.701840', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (17.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (17.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.8ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 13:59:37.547049', '2019-12-15 13:59:37.547049'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 13:59:37.547049', '2019-12-15 13:59:37.547049');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 13:59:37.553050', '2019-12-15 13:59:37.553050'), (298486374, 298486374, 'MyText', '2019-12-15 13:59:37.553050', '2019-12-15 13:59:37.553050');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:59:37.559231', '2019-12-15 13:59:37.559231', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 13:59:37.559231', '2019-12-15 13:59:37.559231', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:00:09.824509', '2019-12-15 14:00:09.824509'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:00:09.824509', '2019-12-15 14:00:09.824509');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:00:09.830966', '2019-12-15 14:00:09.830966'), (298486374, 298486374, 'MyText', '2019-12-15 14:00:09.830966', '2019-12-15 14:00:09.830966');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:00:09.836131', '2019-12-15 14:00:09.836131', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:00:09.836131', '2019-12-15 14:00:09.836131', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+UserControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (17.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.5ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:04:15.642164', '2019-12-15 14:04:15.642164'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:04:15.642164', '2019-12-15 14:04:15.642164');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:04:15.647551', '2019-12-15 14:04:15.647551'), (298486374, 298486374, 'MyText', '2019-12-15 14:04:15.647551', '2019-12-15 14:04:15.647551');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:04:15.651535', '2019-12-15 14:04:15.651535', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:04:15.651535', '2019-12-15 14:04:15.651535', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (24.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.5ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:04:30.412389', '2019-12-15 14:04:30.412389'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:04:30.412389', '2019-12-15 14:04:30.412389');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:04:30.418790', '2019-12-15 14:04:30.418790'), (298486374, 298486374, 'MyText', '2019-12-15 14:04:30.418790', '2019-12-15 14:04:30.418790');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:04:30.423759', '2019-12-15 14:04:30.423759', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:04:30.423759', '2019-12-15 14:04:30.423759', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.1ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:09:31.339815', '2019-12-15 14:09:31.339815'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:09:31.339815', '2019-12-15 14:09:31.339815');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:09:31.345967', '2019-12-15 14:09:31.345967'), (298486374, 298486374, 'MyText', '2019-12-15 14:09:31.345967', '2019-12-15 14:09:31.345967');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:09:31.349927', '2019-12-15 14:09:31.349927', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:09:31.349927', '2019-12-15 14:09:31.349927', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (37.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:09:58.181464', '2019-12-15 14:09:58.181464'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:09:58.181464', '2019-12-15 14:09:58.181464');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:09:58.187928', '2019-12-15 14:09:58.187928'), (298486374, 298486374, 'MyText', '2019-12-15 14:09:58.187928', '2019-12-15 14:09:58.187928');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:09:58.193377', '2019-12-15 14:09:58.193377', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:09:58.193377', '2019-12-15 14:09:58.193377', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.2ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:10:04.675479', '2019-12-15 14:10:04.675479'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:10:04.675479', '2019-12-15 14:10:04.675479');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:10:04.681380', '2019-12-15 14:10:04.681380'), (298486374, 298486374, 'MyText', '2019-12-15 14:10:04.681380', '2019-12-15 14:10:04.681380');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:10:04.685289', '2019-12-15 14:10:04.685289', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:10:04.685289', '2019-12-15 14:10:04.685289', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.9ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:18:40.027739', '2019-12-15 14:18:40.027739'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:18:40.027739', '2019-12-15 14:18:40.027739');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:18:40.034633', '2019-12-15 14:18:40.034633'), (298486374, 298486374, 'MyText', '2019-12-15 14:18:40.034633', '2019-12-15 14:18:40.034633');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:18:40.039594', '2019-12-15 14:18:40.039594', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:18:40.039594', '2019-12-15 14:18:40.039594', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-15 16:18:40 +0200
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.4ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:19:26.773209', '2019-12-15 14:19:26.773209'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:19:26.773209', '2019-12-15 14:19:26.773209');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:19:26.780283', '2019-12-15 14:19:26.780283'), (298486374, 298486374, 'MyText', '2019-12-15 14:19:26.780283', '2019-12-15 14:19:26.780283');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:19:26.785412', '2019-12-15 14:19:26.785412', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:19:26.785412', '2019-12-15 14:19:26.785412', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-15 16:19:26 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered navbar/_nav_bar.html.erb (5.3ms)
+Completed 200 OK in 2901ms (Views: 2896.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.4ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (980190962, 'MyText', 'MyText', 'MyText', '2019-12-15 14:21:15.621048', '2019-12-15 14:21:15.621048'), (298486374, 'MyText', 'MyText', 'MyText', '2019-12-15 14:21:15.621048', '2019-12-15 14:21:15.621048');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 980190962, 'MyText', '2019-12-15 14:21:15.627643', '2019-12-15 14:21:15.627643'), (298486374, 298486374, 'MyText', '2019-12-15 14:21:15.627643', '2019-12-15 14:21:15.627643');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, DEFAULT, DEFAULT, 'tratat@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:21:15.632840', '2019-12-15 14:21:15.632840', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT), (298486374, DEFAULT, DEFAULT, 'trat2at@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-15 14:21:15.632840', '2019-12-15 14:21:15.632840', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_RU_root
+-------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-15 16:21:15 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered navbar/_nav_bar.html.erb (3.7ms)
+Completed 200 OK in 281ms (Views: 276.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+HomeControllerTest: test_should_redirect_to_default_locale
+----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-15 16:21:16 +0200
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_EN_root
+-------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-15 16:21:16 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  Rendered navbar/_nav_bar.html.erb (4.9ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m

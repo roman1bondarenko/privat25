@@ -3,9 +3,7 @@
 one:
   country: one
   name: MyText
-  short_name: MyText
 
 two:
   country: two
   name: MyText
-  short_name: MyText
