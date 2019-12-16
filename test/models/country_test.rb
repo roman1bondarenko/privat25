@@ -16,9 +16,7 @@ class CountryTest < ActiveSupport::TestCase
       { name: 'USA', phone_code: '12ds', short_code: 'US' }
     ]
     params.each do |param|
-      country = Country.create(name: param[:name],
-                               short_code: param[:short_code],
-                               phone_code: param[:phone_code])
+      country = Country.create(param)
       assert country.invalid?
     end
   end

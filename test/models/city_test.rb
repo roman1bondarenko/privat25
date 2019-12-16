@@ -16,7 +16,7 @@ class CityTest < ActiveSupport::TestCase
       { country: country }
     ]
     params.each do |param|
-      city = City.create(name: param[:name], country: param[:country])
+      city = City.create(param)
       assert city.invalid?
     end
   end
