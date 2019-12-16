@@ -1892,3 +1892,282 @@ Processing by HomeController#index as HTML
   Rendered navbar/_nav_bar.html.erb (2.8ms)
 Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (22.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.1ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (23.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (77.7ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (2613238, 'Ukraine', 'UA', '380', '2019-12-16 12:31:29.274166', '2019-12-16 12:31:29.274166'), (713032964, 'Estonia', 'EE', '372', '2019-12-16 12:31:29.274166', '2019-12-16 12:31:29.274166');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 2613238, 'Kirovohrad', '2019-12-16 12:31:29.281142', '2019-12-16 12:31:29.281142'), (298486374, 713032964, 'Keila', '2019-12-16 12:31:29.281142', '2019-12-16 12:31:29.281142');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, 'Maria', 'Bondarenko', 'maria_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 12:31:29.287363', '2019-12-16 12:31:29.287363', 980190962, 1, '1998-12-12', DEFAULT, DEFAULT, '0983452176'), (298486374, 'Roman', 'Bondarenko', 'roman_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 12:31:29.287363', '2019-12-16 12:31:29.287363', 298486374, 0, '1995-11-12', DEFAULT, DEFAULT, '0990012233')[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_RU_locale
+---------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 14:31:29 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+  Rendered navbar/_nav_bar.html.erb (4.2ms)
+Completed 200 OK in 601ms (Views: 589.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (3.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_EN_locale
+---------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 14:31:30 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+  Rendered navbar/_nav_bar.html.erb (3.7ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_EN_root
+-------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 14:31:30 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered navbar/_nav_bar.html.erb (2.2ms)
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_RU_root
+-------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 14:31:30 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (3.0ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+HomeControllerTest: test_should_redirect_to_default_locale
+----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-16 14:31:30 +0200
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (78.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.2ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (2613238, 'Ukraine', 'UA', '380', '2019-12-16 14:10:18.744455', '2019-12-16 14:10:18.744455'), (713032964, 'Estonia', 'EE', '372', '2019-12-16 14:10:18.744455', '2019-12-16 14:10:18.744455');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 2613238, 'Kirovohrad', '2019-12-16 14:10:18.751530', '2019-12-16 14:10:18.751530'), (298486374, 713032964, 'Keila', '2019-12-16 14:10:18.751530', '2019-12-16 14:10:18.751530');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, 'Maria', 'Bondarenko', 'maria_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 14:10:18.757905', '2019-12-16 14:10:18.757905', 980190962, 1, '1998-12-12', DEFAULT, DEFAULT, '0983452176'), (298486374, 'Roman', 'Bondarenko', 'roman_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 14:10:18.757905', '2019-12-16 14:10:18.757905', 298486374, 0, '1995-11-12', DEFAULT, DEFAULT, '0990012233')[0m
+  [1m[35m (72.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (38.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_EN_root
+-------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 16:10:19 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  Rendered navbar/_nav_bar.html.erb (4.8ms)
+Completed 200 OK in 295ms (Views: 289.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_RU_locale
+---------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 16:10:19 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.8ms)
+  Rendered navbar/_nav_bar.html.erb (4.9ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+HomeControllerTest: test_should_redirect_to_default_locale
+----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-16 16:10:19 +0200
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_EN_locale
+---------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 16:10:19 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  Rendered navbar/_nav_bar.html.erb (4.0ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_RU_root
+-------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 16:10:19 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (1.9ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.8ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (2613238, 'Ukraine', 'UA', '380', '2019-12-16 14:11:27.887869', '2019-12-16 14:11:27.887869'), (713032964, 'Estonia', 'EE', '372', '2019-12-16 14:11:27.887869', '2019-12-16 14:11:27.887869');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 2613238, 'Kirovohrad', '2019-12-16 14:11:27.894622', '2019-12-16 14:11:27.894622'), (298486374, 713032964, 'Keila', '2019-12-16 14:11:27.894622', '2019-12-16 14:11:27.894622');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, 'Maria', 'Bondarenko', 'maria_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 14:11:27.899795', '2019-12-16 14:11:27.899795', 980190962, 1, '1998-12-12', DEFAULT, DEFAULT, '0983452176'), (298486374, 'Roman', 'Bondarenko', 'roman_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 14:11:27.899795', '2019-12-16 14:11:27.899795', 298486374, 0, '1995-11-12', DEFAULT, DEFAULT, '0990012233')[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_RU_locale
+---------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 16:11:28 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered navbar/_nav_bar.html.erb (4.7ms)
+Completed 200 OK in 267ms (Views: 262.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_EN_locale
+---------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 16:11:28 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+  Rendered navbar/_nav_bar.html.erb (8.4ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_RU_root
+-------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 16:11:28 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (11.2ms)
+Completed 200 OK in 19ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+HomeControllerTest: test_should_redirect_to_default_locale
+----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-16 16:11:28 +0200
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_EN_root
+-------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 16:11:28 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (2.2ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.9ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (2613238, 'Ukraine', 'UA', '380', '2019-12-16 14:21:24.970455', '2019-12-16 14:21:24.970455'), (713032964, 'Estonia', 'EE', '372', '2019-12-16 14:21:24.970455', '2019-12-16 14:21:24.970455');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 2613238, NULL, '2019-12-16 14:21:24.978126', '2019-12-16 14:21:24.978126'), (298486374, 713032964, 'Keila', '2019-12-16 14:21:24.978126', '2019-12-16 14:21:24.978126');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, 'Maria', 'Bondarenko', 'maria_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 14:21:24.982954', '2019-12-16 14:21:24.982954', 980190962, 1, '1998-12-12', DEFAULT, DEFAULT, '0983452176'), (298486374, 'Roman', 'Bondarenko', 'roman_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 14:21:24.982954', '2019-12-16 14:21:24.982954', 298486374, 0, '1995-11-12', DEFAULT, DEFAULT, '0990012233')[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_RU_locale
+---------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 16:21:25 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered navbar/_nav_bar.html.erb (4.9ms)
+Completed 200 OK in 286ms (Views: 281.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_EN_locale
+---------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 16:21:25 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+  Rendered navbar/_nav_bar.html.erb (4.6ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+HomeControllerTest: test_should_redirect_to_default_locale
+----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-16 16:21:25 +0200
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_EN_root
+-------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 16:21:25 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (6.9ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_RU_root
+-------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 16:21:25 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (3.8ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
