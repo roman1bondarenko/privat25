@@ -5,6 +5,6 @@ class Country < ApplicationRecord
 
   validates_associated :cities
   validates :name, :phone_code, :short_code, presence: true
-  validates :phone_code, format: { with: /\A\d+\z/,
+  validates :phone_code, numericality: { only_integer: true ,
                                    message: 'Phone code may contain only numbers' }
 end
