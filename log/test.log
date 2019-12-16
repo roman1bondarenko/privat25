@@ -5644,3 +5644,217 @@ CountryTest: test_should_be_valid_country
   [1m[36mCountry Create (0.5ms)[0m  [1m[32mINSERT INTO "countries" ("name", "short_code", "phone_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ukraine"], ["short_code", "UA"], ["phone_code", "380"], ["created_at", "2019-12-16 15:46:11.003906"], ["updated_at", "2019-12-16 15:46:11.003906"]]
   [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (24.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.8ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (2613238, 'Ukraine', 'UA', '380', '2019-12-16 15:49:41.211401', '2019-12-16 15:49:41.211401'), (713032964, 'Estonia', 'EE', '372', '2019-12-16 15:49:41.211401', '2019-12-16 15:49:41.211401');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 2613238, 'Kirovohrad', '2019-12-16 15:49:41.217651', '2019-12-16 15:49:41.217651'), (298486374, 713032964, 'Keila', '2019-12-16 15:49:41.217651', '2019-12-16 15:49:41.217651');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, 'Maria', 'Bondarenko', 'maria_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 15:49:41.222613', '2019-12-16 15:49:41.222613', 980190962, 1, '1998-12-12', DEFAULT, DEFAULT, '0983452176'), (298486374, 'Roman', 'Bondarenko', 'roman_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 15:49:41.222613', '2019-12-16 15:49:41.222613', 298486374, 0, '1995-11-12', DEFAULT, DEFAULT, '0990012233')[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+CountryTest: test_should_be_invalid_country
+-------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+CountryTest: test_should_be_valid_country
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCountry Create (0.4ms)[0m  [1m[32mINSERT INTO "countries" ("name", "short_code", "phone_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ukraine"], ["short_code", "UA"], ["phone_code", "380"], ["created_at", "2019-12-16 15:49:41.333522"], ["updated_at", "2019-12-16 15:49:41.333522"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+CityTest: test_should_be_valid_city
+-----------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCountry Create (0.4ms)[0m  [1m[32mINSERT INTO "countries" ("name", "short_code", "phone_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ukraine"], ["short_code", "UA"], ["phone_code", "380"], ["created_at", "2019-12-16 15:49:41.338870"], ["updated_at", "2019-12-16 15:49:41.338870"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCity Create (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("country_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["country_id", 713032966], ["name", "Krop"], ["created_at", "2019-12-16 15:49:41.371594"], ["updated_at", "2019-12-16 15:49:41.371594"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_RU_root
+-------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 17:49:41 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  Rendered navbar/_nav_bar.html.erb (7.7ms)
+Completed 200 OK in 344ms (Views: 335.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_EN_locale
+---------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 17:49:41 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+  Rendered navbar/_nav_bar.html.erb (4.3ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_RU_locale
+---------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 17:49:41 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  Rendered navbar/_nav_bar.html.erb (6.5ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_EN_root
+-------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 17:49:41 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+  Rendered navbar/_nav_bar.html.erb (2.0ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+HomeControllerTest: test_should_redirect_to_default_locale
+----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-16 17:49:41 +0200
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "countries" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "cities" DISABLE TRIGGER ALL[0m
+  [1m[35m (17.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (1.5ms)[0m  [1m[31mDELETE FROM "countries";
+DELETE FROM "cities";
+DELETE FROM "users";
+INSERT INTO "countries" ("id", "name", "short_code", "phone_code", "created_at", "updated_at") VALUES (2613238, 'Ukraine', 'UA', '380', '2019-12-16 15:52:01.298476', '2019-12-16 15:52:01.298476'), (713032964, 'Estonia', 'EE', '372', '2019-12-16 15:52:01.298476', '2019-12-16 15:52:01.298476');
+INSERT INTO "cities" ("id", "country_id", "name", "created_at", "updated_at") VALUES (980190962, 2613238, 'Kirovohrad', '2019-12-16 15:52:01.305534', '2019-12-16 15:52:01.305534'), (298486374, 713032964, 'Keila', '2019-12-16 15:52:01.305534', '2019-12-16 15:52:01.305534');
+INSERT INTO "users" ("id", "first_name", "second_name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "city_id", "gender", "birthday", "is_deleted", "is_blocked", "phone") VALUES (980190962, 'Maria', 'Bondarenko', 'maria_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 15:52:01.310446', '2019-12-16 15:52:01.310446', 980190962, 1, '1998-12-12', DEFAULT, DEFAULT, '0983452176'), (298486374, 'Roman', 'Bondarenko', 'roman_bondarenko@gmail.com', DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2019-12-16 15:52:01.310446', '2019-12-16 15:52:01.310446', 298486374, 0, '1995-11-12', DEFAULT, DEFAULT, '0990012233')[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "countries" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "cities" ENABLE TRIGGER ALL[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+CountryTest: test_should_be_invalid_country
+-------------------------------------------
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+CountryTest: test_should_be_valid_country
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCountry Create (0.4ms)[0m  [1m[32mINSERT INTO "countries" ("name", "short_code", "phone_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ukraine"], ["short_code", "UA"], ["phone_code", "380"], ["created_at", "2019-12-16 15:52:01.418170"], ["updated_at", "2019-12-16 15:52:01.418170"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_EN_root
+-------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 17:52:01 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  Rendered navbar/_nav_bar.html.erb (6.6ms)
+Completed 200 OK in 314ms (Views: 310.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------------
+HomeControllerTest: test_should_redirect_to_default_locale
+----------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2019-12-16 17:52:01 +0200
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+HomeControllerTest: test_should_get_RU_root
+-------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 17:52:01 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+  Rendered navbar/_nav_bar.html.erb (3.2ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_EN_locale
+---------------------------------------------
+Started GET "/en" for 127.0.0.1 at 2019-12-16 17:52:01 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (2.3ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+HomeControllerTest: test_should_get_RU_locale
+---------------------------------------------
+Started GET "/ru" for 127.0.0.1 at 2019-12-16 17:52:01 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"ru"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+  Rendered navbar/_nav_bar.html.erb (3.8ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------
+CityTest: test_shold_be_invalid_city
+------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCountry Create (0.9ms)[0m  [1m[32mINSERT INTO "countries" ("name", "short_code", "phone_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ukraine"], ["short_code", "UA"], ["phone_code", "380"], ["created_at", "2019-12-16 15:52:01.835614"], ["updated_at", "2019-12-16 15:52:01.835614"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+CityTest: test_should_be_valid_city
+-----------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCountry Create (0.3ms)[0m  [1m[32mINSERT INTO "countries" ("name", "short_code", "phone_code", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ukraine"], ["short_code", "UA"], ["phone_code", "380"], ["created_at", "2019-12-16 15:52:01.862237"], ["updated_at", "2019-12-16 15:52:01.862237"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCity Create (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("country_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["country_id", 713032967], ["name", "Krop"], ["created_at", "2019-12-16 15:52:01.864444"], ["updated_at", "2019-12-16 15:52:01.864444"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
