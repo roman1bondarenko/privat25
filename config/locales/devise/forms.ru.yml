@@ -37,3 +37,5 @@ ru:
     sessions:
       new:
         login_title: "Вход в аккаунт"
+        new_manager: "Создать нового менеджера"
+        manager_sign_up: "Регистрация менеджера"

@@ -40,6 +40,8 @@ en:
     sessions:
       new:
         login_title: "Login to Your Account"
+        new_manager: "Create new manager"
+        manager_sign_up: "Sign up as manager"
     shared:
       error_messages:
       links:
