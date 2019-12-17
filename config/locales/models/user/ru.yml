@@ -12,3 +12,11 @@ ru:
         city: "Город"
         male: "Мужской"
         female: "Женский"
+        as_user: "пользователя"
+        log_in_as: "как пользователь"
+      manager:
+        first_name: "Имя"
+        second_name: "Фамилия"
+        password: "Пароль"
+        email: "Почта"
+        log_in_as: "как менеджер"

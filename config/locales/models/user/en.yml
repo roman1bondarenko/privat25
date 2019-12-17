@@ -12,3 +12,11 @@ en:
         city: "City"
         male: "Male"
         female: "Female"
+        as_user: "as user"
+        log_in_as: "as user"
+      manager:
+        first_name: "First name"
+        second_name: "Second name"
+        password: "Password"
+        email: "Email"
+        log_in_as: "as manager"
