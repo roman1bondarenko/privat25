@@ -3,7 +3,7 @@
     <h1 class="cover-heading"><%= t 'home.describe-title' %></h1>
     <p class="lead"> <%= t 'home.describe' %> </p>
     <p class="lead">
-      <a href="/" class="btn btn-lg btn-secondary"><%= t 'home.nav-button-text' %></a>
+      <%= link_to(t('home.nav-button-text'), user_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
     </p>
   </main>
 </div>
