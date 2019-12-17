@@ -9,7 +9,7 @@
     </div>
     <br>
     <% if user_signed_in? %>
-      <a class="nav-item" style="margin-right: 20px"> <%= t 'nav-bar.login-as' %>  <%= get_current_user_name %></a>
+      <a class="nav-item" style="margin-right: 20px"> <%= t 'nav-bar.login-as' %>  <%= current_user.full_name if current_user %></a>
       <a class="btn btn-outline-primary" <%= link_to(t('logout'), destroy_user_session_path, method: :delete) %>
     <% else %>
       <%= link_to(t('sign-in'), new_user_session_path, class: "btn btn-outline-primary", role: "button") %>

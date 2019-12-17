@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -8,8 +10,8 @@ class User < ApplicationRecord
   validates :first_name, :second_name, :email,
             :gender, :birthday, :phone, presence: true
 
-  validates :phone, numericality: { only_integer: true ,
-                                         message: 'Phone number may contain only numbers' }
+  validates :phone, numericality: { only_integer: true,
+                                    message: 'Phone number may contain only numbers' }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   enum gender: { male: 0, female: 1 }
@@ -22,5 +24,9 @@ class User < ApplicationRecord
   def gender=(value)
     value = value.to_i
     super(value)
+  end
+
+  def full_name
+    "#{first_name} #{second_name}"
   end
 end
