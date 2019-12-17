@@ -20,3 +20,4 @@ ru:
         password: "Пароль"
         email: "Почта"
         log_in_as: "как менеджер"
+        sign_up_as: "менеджера"

@@ -20,3 +20,4 @@ en:
         password: "Password"
         email: "Email"
         log_in_as: "as manager"
+        sign_up_as: "as manager"

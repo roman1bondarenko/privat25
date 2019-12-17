@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <br>
+    <h4 style="text-align: center"><%= t('forms.registrations.new.title') %> <%= f.label :sign_up_as%> </h4>
+    <div class="form-row">
+      <div class="col-md-6">
+        <%= f.label :first_name %><br/>
+        <%= f.text_field :first_name, class: "form-control",
+                         :required => true, autofocus: true, autocomplete: "First name" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.label :second_name %><br/>
+        <%= f.text_field :second_name, class: "form-control",
+                         :required => true, autofocus: true, autocomplete: "Second name" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br/>
+      <%= f.email_field :email, class: "form-control",
+                        :required => true, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> <%= t('forms.registrations.new.chars_min') %>)</em>
+      <% end %><br/>
+      <%= f.password_field :password, class: "form-control", autocomplete: "new-password", :required => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label t('forms.registrations.new.password_confirmation') %><br/>
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password", :required => true %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit t('global.sign-up'), class: "btn btn-lg btn-primary btn-block" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>
