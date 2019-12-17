@@ -17,7 +17,7 @@
         <%= link_to(t('global.sign-up'), new_user_registration_path, class: "btn btn-outline-success", role: "button") %>
       </div>
       <div style="padding-left: 10px;">
-        <a class="btn btn-info" <%= link_to(t('global.for_manager'), new_manager_session_path )%>
+        <%= link_to(t('global.for_manager'), new_manager_session_path, class: "btn btn-info", role: "button" )%>
       </div>
     <% end %>
   </form>
