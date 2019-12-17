@@ -1,8 +1,10 @@
 en:
-  sign-in: "Sign in"
-  sign-up: "Sign up"
-  logout: "Logout"
-  login: "Log in"
-  greeting: "Hello"
-  welcome: "Welcome"
-  country: "Country"
+  global:
+    sign-in: "Sign in"
+    for_manager: "For manager"
+    sign-up: "Sign up"
+    logout: "Logout"
+    login: "Log in"
+    greeting: "Hello"
+    welcome: "Welcome"
+    country: "Country"
