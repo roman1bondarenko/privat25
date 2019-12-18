@@ -11,7 +11,7 @@ class User < ApplicationRecord
             :gender, :birthday, :phone, presence: true
 
   validates :phone, numericality: { only_integer: true,
-                                    message: 'Phone number may contain only numbers' }
+                                    message: ' number may contain only numbers' }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   enum gender: { male: 0, female: 1 }
