@@ -11,7 +11,12 @@
 
 <body>
 
-<%= render 'navbar/nav_bar' %>
+<% if content_for?(:navbar) %>
+  <%= yield(:navbar) %>
+<% else %>
+  <%= render 'navbar/nav_bar' %>
+<% end %>
+
 
 <div class="container">
 

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="<%= asset_path "logo.png" %>" alt="Logo" style="width:25%;">
+  </a>
+  <form class="form-inline">
+    <div class="nav-section" style="margin-right: 20px">
+      <%= link_to_unless_current "English", locale: "en" %> |
+      <%= link_to_unless_current "Русский", locale: "ru" %>
+    </div>
+    <br>
+    <% if manager_signed_in? %>
+      <a class="nav-item" style="margin-right: 20px"> <%= t 'nav-bar.login-as' %>  <%= current_manager.full_name if current_user %></a>
+      <a class="btn btn-outline-primary" <%= link_to(t('global.logout'), destroy_manager_session_path, method: :delete) %>
+    <% else %>
+      <div style="padding-left: 10px;">
+        <%= link_to(t('global.for_manager'), new_manager_session_path, class: "btn btn-info", role: "button" )%>
+      </div>
+    <% end %>
+  </form>
+</nav>
