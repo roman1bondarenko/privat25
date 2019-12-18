@@ -7,7 +7,8 @@ class ManagerTest < ActiveSupport::TestCase
              email: 'managermail@gmail.com', password: 'password' }
 
   test 'should create and be a valid manager ' do
-    params[:email] = 'newmanagermail@gmail.com'
+    params = { first_name: 'Dan', second_name: 'White',
+               email: 'danwhite@gmail.com', password: 'password' }
     manager = Manager.create(params)
     assert manager.valid?
   end
