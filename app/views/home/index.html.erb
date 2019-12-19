@@ -3,7 +3,11 @@
     <h1 class="cover-heading"><%= t 'home.describe-title' %></h1>
     <p class="lead"> <%= t 'home.describe' %> </p>
     <p class="lead">
-      <%= link_to(t('home.nav-button-text'), user_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
+      <% if manager_signed_in? %>
+        <%= link_to(t('home.nav-button-manager-text'), '#pathToManager', class: "btn btn-lg btn-secondary", role: "button") %>
+      <% else %>
+        <%= link_to(t('home.nav-button-text'), '#pathToUser', class: "btn btn-lg btn-secondary", role: "button") %>
+      <% end %>
     </p>
   </main>
 </div>
