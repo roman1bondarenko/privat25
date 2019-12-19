@@ -14,4 +14,10 @@ module ApplicationHelper
     end
     nil
   end
+
+  def set_manager_nav_bar
+    content_for :navbar do
+      render 'navbar/manager'
+    end
+  end
 end

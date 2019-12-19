@@ -3,9 +3,7 @@
   <%= form_for(resource, as: resource_name, html: {class: "form-sign"}, url: session_path(resource_name)) do |f| %>
 
     <% if resource_name == :manager %>
-      <% content_for :navbar do %>
-        <%= render 'navbar/manager' %>
-      <% end %>
+      <% set_manager_nav_bar %>
     <% end %>
 
     <h4 class="modal-title"><%= t('global.login') %> <%= f.label :log_in_as %></h4>
