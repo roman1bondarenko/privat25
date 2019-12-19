@@ -13,24 +13,24 @@ class Managers::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -62,4 +62,23 @@ class Managers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def sign_up_params
+    params.require(:manager).permit(:first_name,
+                                 :second_name,
+                                 :email,
+                                 :password,
+                                 :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:manager).permit(:first_name,
+                                 :second_name,
+                                 :email,
+                                 :password,
+                                 :password_confirmation,
+                                 :current_password)
+    end
 end
