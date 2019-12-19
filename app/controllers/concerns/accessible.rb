@@ -9,7 +9,6 @@ module Accessible
   protected
 
   def check_user
-    p "it run me"
     if current_manager
       flash.clear
       redirect_to('#autenticatedManagerPath') && return
