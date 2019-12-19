@@ -9,7 +9,7 @@
     </div>
     <br>
     <% if manager_signed_in? %>
-      <a class="nav-item" style="margin-right: 20px"> <%= t 'nav-bar.login-as' %>  <%= current_manager.full_name if current_user %></a>
+      <a class="nav-item" style="margin-right: 20px"> <%= t 'nav-bar.login-as' %>  <%= current_manager.full_name if current_manager %></a>
       <a class="btn btn-outline-primary" <%= link_to(t('global.logout'), destroy_manager_session_path, method: :delete) %>
     <% else %>
       <div style="padding-left: 10px;">

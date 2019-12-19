@@ -9,4 +9,8 @@ class Manager < ApplicationRecord
   validates :first_name, :second_name, :email, presence: true
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  def full_name
+    "#{first_name} #{second_name}"
+  end
 end
