@@ -27,7 +27,9 @@
 
       <div class="col-md-6">
         <%= f.label t('global.country') %><br/>
-        <%= select_tag 'country_id', options_from_collection_for_select(Country.all, :id, :name),
+        <%= select_tag 'country_id', options_from_collection_for_select(@countries_options_select_params[:countries],
+                                                                        @countries_options_select_params[:option_value],
+                                                                        @countries_options_select_params[:option_name]),
                        class:"custom-select", :required => true, :prompt => t('forms.registrations.new.select_country')%>
       </div>
 

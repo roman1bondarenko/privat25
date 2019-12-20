@@ -9,6 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @countries_options_select_params = { countries: Country.all,
+                                         option_value: :id,
+                                         option_name: :name }
     super
   end
 
