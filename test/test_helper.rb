@@ -10,18 +10,18 @@ class ActiveSupport::TestCase
 
   protected
 
-  def test_missing_params(model, params, params_to_delete)
+  def test_missing_params(resource, params, params_to_delete)
     params_to_delete.each do |param|
-      model_obj = model.create(params.except(param))
-      assert model_obj.invalid?
+      resource_obj = resource.create(params.except(param))
+      assert resource_obj.invalid?
     end
   end
 
-  def test_contact_values(model, params, contact_cell_name, data_to_test)
+  def test_contact_values(resource, params, contact_cell_name, data_to_test)
     data_to_test.each do |data|
       params[contact_cell_name] = data
-      model_obj = model.create(params)
-      assert model_obj.invalid?
+      resource_obj = resource.create(params)
+      assert resource_obj.invalid?
     end
   end
 end
