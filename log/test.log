@@ -40227,3 +40227,19 @@ UserTest: test_should_be_valid_user_
   [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "second_name", "email", "encrypted_password", "created_at", "updated_at", "city_id", "birthday", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Roman"], ["second_name", "Bondarenko"], ["email", "mymail2@gmail.com"], ["encrypted_password", "$2a$04$KOr6g1b7B.nmNExkxFuo8ebwFuNjyGakX73QNiQPiHGuqdfILnuri"], ["created_at", "2019-12-18 11:46:12.748875"], ["updated_at", "2019-12-18 11:46:12.748875"], ["city_id", 298486374], ["birthday", "1998-12-03"], ["phone", "095782341"]]
   [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7925793018725448825)[0m
+  [1m[35m (26.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBills (20191224150907)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (275.4ms)[0m  [1m[35mCREATE TABLE "bills" ("id" bigserial primary key, "user_id" bigint, "type" decimal, "amount" decimal, "percent" decimal, "close_at" timestamp, "replenishment_at" timestamp, "regular_replenishment_amount" decimal, "expired_bill_at" date, "early_closed_status" decimal, "amount_limit" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f5fcc78f42"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (136.9ms)[0m  [1m[35mCREATE  INDEX  "index_bills_on_user_id" ON "bills"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191224150907"]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (114.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7925793018725448825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
