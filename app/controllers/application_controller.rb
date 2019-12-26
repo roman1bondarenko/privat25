@@ -2,6 +2,16 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  
+  # load_and_authorize_resource
+
+  rescue_from CanCan::AccessDenied do
+    redirect_to '/403.html'
+  end
+
+  def current_ability
+    @current_ability ||= current_manager ? ManagerAbility.new(current_manager) : UserAbility.new(current_user)
+  end
 
   private
 
@@ -10,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-    { locale: I18n.locale }
+    {locale: I18n.locale}
   end
 end

@@ -107,3 +107,441 @@ F, [2019-12-13T15:42:23.291414 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab
 [1298b4f0-403a-432f-8675-a03ab66cc29f]     11: 
 F, [2019-12-13T15:42:23.291435 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab66cc29f]   
 F, [2019-12-13T15:42:23.291458 #22452] FATAL -- : [1298b4f0-403a-432f-8675-a03ab66cc29f] app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__356085362626962409_47035137831440'
+I, [2019-12-26T18:03:35.688939 #27246]  INFO -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0] Started GET "/en/cabinets/manager" for 127.0.0.1 at 2019-12-26 18:03:35 +0200
+I, [2019-12-26T18:03:35.690320 #27246]  INFO -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0] Processing by Cabinets::ManagerController#index as HTML
+I, [2019-12-26T18:03:35.690417 #27246]  INFO -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0]   Parameters: {"locale"=>"en"}
+I, [2019-12-26T18:03:35.699213 #27246]  INFO -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0] Completed 500 Internal Server Error in 9ms
+F, [2019-12-26T18:03:35.699807 #27246] FATAL -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0]   
+F, [2019-12-26T18:03:35.699897 #27246] FATAL -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0] NoMethodError (undefined method `id' for nil:NilClass):
+F, [2019-12-26T18:03:35.699931 #27246] FATAL -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0]   
+F, [2019-12-26T18:03:35.699956 #27246] FATAL -- : [ca7660bf-e7a5-4483-9bc7-c77625f857b0] app/abilities/user_ability.rb:7:in `initialize'
+[ca7660bf-e7a5-4483-9bc7-c77625f857b0] app/controllers/application_controller.rb:7:in `new'
+[ca7660bf-e7a5-4483-9bc7-c77625f857b0] app/controllers/application_controller.rb:7:in `current_ability'
+I, [2019-12-26T18:03:35.964354 #27246]  INFO -- : [e0cf176e-275f-4266-ae4a-f129f855cae0] Started GET "/favicon.ico" for 127.0.0.1 at 2019-12-26 18:03:35 +0200
+I, [2019-12-26T18:03:35.965106 #27246]  INFO -- : [e0cf176e-275f-4266-ae4a-f129f855cae0] Processing by HomeController#index as 
+I, [2019-12-26T18:03:35.965150 #27246]  INFO -- : [e0cf176e-275f-4266-ae4a-f129f855cae0]   Parameters: {"locale"=>"favicon"}
+I, [2019-12-26T18:03:35.966157 #27246]  INFO -- : [e0cf176e-275f-4266-ae4a-f129f855cae0] Completed 500 Internal Server Error in 1ms
+F, [2019-12-26T18:03:35.966776 #27246] FATAL -- : [e0cf176e-275f-4266-ae4a-f129f855cae0]   
+F, [2019-12-26T18:03:35.966830 #27246] FATAL -- : [e0cf176e-275f-4266-ae4a-f129f855cae0] I18n::InvalidLocale ("favicon" is not a valid locale):
+F, [2019-12-26T18:03:35.966852 #27246] FATAL -- : [e0cf176e-275f-4266-ae4a-f129f855cae0]   
+F, [2019-12-26T18:03:35.966873 #27246] FATAL -- : [e0cf176e-275f-4266-ae4a-f129f855cae0] app/controllers/application_controller.rb:13:in `set_locale'
+I, [2019-12-26T18:05:20.113228 #27246]  INFO -- : [2e8b114a-818a-453c-805e-792caa056763] Started GET "/" for 127.0.0.1 at 2019-12-26 18:05:20 +0200
+I, [2019-12-26T18:05:20.119314 #27246]  INFO -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d] Started GET "/en/" for 127.0.0.1 at 2019-12-26 18:05:20 +0200
+I, [2019-12-26T18:05:20.119936 #27246]  INFO -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d] Processing by HomeController#index as HTML
+I, [2019-12-26T18:05:20.119991 #27246]  INFO -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d]   Parameters: {"locale"=>"en"}
+I, [2019-12-26T18:05:20.122550 #27246]  INFO -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d]   Rendering home/index.html.erb within layouts/application
+I, [2019-12-26T18:05:20.123753 #27246]  INFO -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d]   Rendered home/index.html.erb within layouts/application (1.1ms)
+I, [2019-12-26T18:05:20.124957 #27246]  INFO -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d] Completed 500 Internal Server Error in 5ms
+F, [2019-12-26T18:05:20.125485 #27246] FATAL -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d]   
+F, [2019-12-26T18:05:20.125515 #27246] FATAL -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2019-12-26T18:05:20.125599 #27246] FATAL -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d]      5:   <%= csrf_meta_tags %>
+[9e20aabf-cd94-4257-9bba-5e9c169bab3d]      6:   <%= csp_meta_tag %>
+[9e20aabf-cd94-4257-9bba-5e9c169bab3d]      7: 
+[9e20aabf-cd94-4257-9bba-5e9c169bab3d]      8:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[9e20aabf-cd94-4257-9bba-5e9c169bab3d]      9:   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+[9e20aabf-cd94-4257-9bba-5e9c169bab3d]     10: </head>
+[9e20aabf-cd94-4257-9bba-5e9c169bab3d]     11: 
+F, [2019-12-26T18:05:20.125630 #27246] FATAL -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d]   
+F, [2019-12-26T18:05:20.125655 #27246] FATAL -- : [9e20aabf-cd94-4257-9bba-5e9c169bab3d] app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___2576783790687297648_47369082722840'
+I, [2019-12-26T18:05:20.225745 #27246]  INFO -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72] Started GET "/favicon.ico" for 127.0.0.1 at 2019-12-26 18:05:20 +0200
+I, [2019-12-26T18:05:20.226617 #27246]  INFO -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72] Processing by HomeController#index as 
+I, [2019-12-26T18:05:20.226694 #27246]  INFO -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72]   Parameters: {"locale"=>"favicon"}
+I, [2019-12-26T18:05:20.228082 #27246]  INFO -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72] Completed 500 Internal Server Error in 1ms
+F, [2019-12-26T18:05:20.228883 #27246] FATAL -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72]   
+F, [2019-12-26T18:05:20.228952 #27246] FATAL -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72] I18n::InvalidLocale ("favicon" is not a valid locale):
+F, [2019-12-26T18:05:20.228993 #27246] FATAL -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72]   
+F, [2019-12-26T18:05:20.229028 #27246] FATAL -- : [1b62a514-2f37-4dc6-803c-569aef0c0d72] app/controllers/application_controller.rb:13:in `set_locale'
+I, [2019-12-26T18:05:22.453259 #27246]  INFO -- : [39a02464-7a17-4478-b0b2-79d43188a114] Started GET "/en/" for 127.0.0.1 at 2019-12-26 18:05:22 +0200
+I, [2019-12-26T18:05:22.466816 #27246]  INFO -- : [39a02464-7a17-4478-b0b2-79d43188a114] Processing by HomeController#index as HTML
+I, [2019-12-26T18:05:22.466915 #27246]  INFO -- : [39a02464-7a17-4478-b0b2-79d43188a114]   Parameters: {"locale"=>"en"}
+I, [2019-12-26T18:05:22.468125 #27246]  INFO -- : [39a02464-7a17-4478-b0b2-79d43188a114]   Rendering home/index.html.erb within layouts/application
+I, [2019-12-26T18:05:22.468720 #27246]  INFO -- : [39a02464-7a17-4478-b0b2-79d43188a114]   Rendered home/index.html.erb within layouts/application (0.5ms)
+I, [2019-12-26T18:05:22.470830 #27246]  INFO -- : [39a02464-7a17-4478-b0b2-79d43188a114] Completed 500 Internal Server Error in 4ms
+F, [2019-12-26T18:05:22.471470 #27246] FATAL -- : [39a02464-7a17-4478-b0b2-79d43188a114]   
+F, [2019-12-26T18:05:22.471508 #27246] FATAL -- : [39a02464-7a17-4478-b0b2-79d43188a114] ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.):
+F, [2019-12-26T18:05:22.471650 #27246] FATAL -- : [39a02464-7a17-4478-b0b2-79d43188a114]      5:   <%= csrf_meta_tags %>
+[39a02464-7a17-4478-b0b2-79d43188a114]      6:   <%= csp_meta_tag %>
+[39a02464-7a17-4478-b0b2-79d43188a114]      7: 
+[39a02464-7a17-4478-b0b2-79d43188a114]      8:   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+[39a02464-7a17-4478-b0b2-79d43188a114]      9:   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+[39a02464-7a17-4478-b0b2-79d43188a114]     10: </head>
+[39a02464-7a17-4478-b0b2-79d43188a114]     11: 
+F, [2019-12-26T18:05:22.471702 #27246] FATAL -- : [39a02464-7a17-4478-b0b2-79d43188a114]   
+F, [2019-12-26T18:05:22.471723 #27246] FATAL -- : [39a02464-7a17-4478-b0b2-79d43188a114] app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___2576783790687297648_47369082722840'
+I, [2019-12-26T18:05:22.625185 #27246]  INFO -- : [13391cc8-fb93-4064-a51a-6844c2f10db3] Started GET "/favicon.ico" for 127.0.0.1 at 2019-12-26 18:05:22 +0200
+I, [2019-12-26T18:05:22.625868 #27246]  INFO -- : [13391cc8-fb93-4064-a51a-6844c2f10db3] Processing by HomeController#index as 
+I, [2019-12-26T18:05:22.625922 #27246]  INFO -- : [13391cc8-fb93-4064-a51a-6844c2f10db3]   Parameters: {"locale"=>"favicon"}
+I, [2019-12-26T18:05:22.626849 #27246]  INFO -- : [13391cc8-fb93-4064-a51a-6844c2f10db3] Completed 500 Internal Server Error in 1ms
+F, [2019-12-26T18:05:22.627375 #27246] FATAL -- : [13391cc8-fb93-4064-a51a-6844c2f10db3]   
+F, [2019-12-26T18:05:22.627432 #27246] FATAL -- : [13391cc8-fb93-4064-a51a-6844c2f10db3] I18n::InvalidLocale ("favicon" is not a valid locale):
+F, [2019-12-26T18:05:22.627494 #27246] FATAL -- : [13391cc8-fb93-4064-a51a-6844c2f10db3]   
+F, [2019-12-26T18:05:22.627541 #27246] FATAL -- : [13391cc8-fb93-4064-a51a-6844c2f10db3] app/controllers/application_controller.rb:13:in `set_locale'
+I, [2019-12-26T18:05:42.106614 #30288]  INFO -- : [aa75cb6a-9924-4702-98ad-491b230a8b96] Started GET "/en/" for 127.0.0.1 at 2019-12-26 18:05:42 +0200
+I, [2019-12-26T18:05:42.108346 #30288]  INFO -- : [aa75cb6a-9924-4702-98ad-491b230a8b96] Processing by HomeController#index as HTML
+I, [2019-12-26T18:05:42.108450 #30288]  INFO -- : [aa75cb6a-9924-4702-98ad-491b230a8b96]   Parameters: {"locale"=>"en"}
+I, [2019-12-26T18:05:42.117015 #30288]  INFO -- : [aa75cb6a-9924-4702-98ad-491b230a8b96] Completed 500 Internal Server Error in 8ms
+F, [2019-12-26T18:05:42.117809 #30288] FATAL -- : [aa75cb6a-9924-4702-98ad-491b230a8b96]   
+F, [2019-12-26T18:05:42.117858 #30288] FATAL -- : [aa75cb6a-9924-4702-98ad-491b230a8b96] NameError (uninitialized constant Home):
+F, [2019-12-26T18:05:42.117881 #30288] FATAL -- : [aa75cb6a-9924-4702-98ad-491b230a8b96]   
+F, [2019-12-26T18:05:42.117914 #30288] FATAL -- : [aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/core_ext/string/inflections.rb:68:in `constantize'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] cancancan (3.0.1) lib/cancan/controller_resource.rb:65:in `resource_class'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:91:in `resource_base'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] cancancan (3.0.1) lib/cancan/controller_resource.rb:78:in `load_collection?'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:19:in `load_resource'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] cancancan (3.0.1) lib/cancan/controller_resource.rb:33:in `load_and_authorize_resource'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] cancancan (3.0.1) lib/cancan/controller_resource.rb:17:in `block in add_before_action'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `instance_exec'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:199:in `block in halting'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `each'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] warden (1.2.8) lib/warden/manager.rb:34:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/etag.rb:25:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/head.rb:12:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] railties (5.2.3) lib/rails/engine.rb:524:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+[aa75cb6a-9924-4702-98ad-491b230a8b96] puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-12-26T18:05:42.206523 #30288]  INFO -- : [e1600a15-62b6-488e-a1de-92682aedf914] Started GET "/favicon.ico" for 127.0.0.1 at 2019-12-26 18:05:42 +0200
+I, [2019-12-26T18:05:42.207291 #30288]  INFO -- : [e1600a15-62b6-488e-a1de-92682aedf914] Processing by HomeController#index as 
+I, [2019-12-26T18:05:42.207371 #30288]  INFO -- : [e1600a15-62b6-488e-a1de-92682aedf914]   Parameters: {"locale"=>"favicon"}
+I, [2019-12-26T18:05:42.208695 #30288]  INFO -- : [e1600a15-62b6-488e-a1de-92682aedf914] Completed 500 Internal Server Error in 1ms
+F, [2019-12-26T18:05:42.209479 #30288] FATAL -- : [e1600a15-62b6-488e-a1de-92682aedf914]   
+F, [2019-12-26T18:05:42.209536 #30288] FATAL -- : [e1600a15-62b6-488e-a1de-92682aedf914] I18n::InvalidLocale ("favicon" is not a valid locale):
+F, [2019-12-26T18:05:42.209573 #30288] FATAL -- : [e1600a15-62b6-488e-a1de-92682aedf914]   
+F, [2019-12-26T18:05:42.209612 #30288] FATAL -- : [e1600a15-62b6-488e-a1de-92682aedf914] app/controllers/application_controller.rb:14:in `set_locale'
+I, [2019-12-26T18:05:45.986266 #30288]  INFO -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] Started GET "/en/managers/sign_in" for 127.0.0.1 at 2019-12-26 18:05:45 +0200
+I, [2019-12-26T18:05:45.987274 #30288]  INFO -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] Processing by Managers::SessionsController#new as HTML
+I, [2019-12-26T18:05:45.987350 #30288]  INFO -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a]   Parameters: {"locale"=>"en"}
+I, [2019-12-26T18:05:46.007295 #30288]  INFO -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] Completed 500 Internal Server Error in 20ms
+F, [2019-12-26T18:05:46.008800 #30288] FATAL -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a]   
+F, [2019-12-26T18:05:46.008938 #30288] FATAL -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] NameError (uninitialized constant Session):
+F, [2019-12-26T18:05:46.008984 #30288] FATAL -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a]   
+F, [2019-12-26T18:05:46.009028 #30288] FATAL -- : [5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/core_ext/string/inflections.rb:68:in `constantize'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] cancancan (3.0.1) lib/cancan/controller_resource.rb:65:in `resource_class'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:91:in `resource_base'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] cancancan (3.0.1) lib/cancan/controller_resource_builder.rb:8:in `build_resource'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:108:in `load_resource_instance'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:18:in `load_resource'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] cancancan (3.0.1) lib/cancan/controller_resource.rb:33:in `load_and_authorize_resource'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] cancancan (3.0.1) lib/cancan/controller_resource.rb:17:in `block in add_before_action'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `instance_exec'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:199:in `block in halting'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `each'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] warden (1.2.8) lib/warden/manager.rb:34:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/etag.rb:25:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/head.rb:12:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] railties (5.2.3) lib/rails/engine.rb:524:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+[5f9c3a27-9d2f-45a5-b7f6-8dcce998107a] puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-12-26T18:05:46.235215 #30288]  INFO -- : [bc727449-37f8-43e0-813b-6af82cef2bd6] Started GET "/favicon.ico" for 127.0.0.1 at 2019-12-26 18:05:46 +0200
+I, [2019-12-26T18:05:46.237113 #30288]  INFO -- : [bc727449-37f8-43e0-813b-6af82cef2bd6] Processing by HomeController#index as 
+I, [2019-12-26T18:05:46.237291 #30288]  INFO -- : [bc727449-37f8-43e0-813b-6af82cef2bd6]   Parameters: {"locale"=>"favicon"}
+I, [2019-12-26T18:05:46.239059 #30288]  INFO -- : [bc727449-37f8-43e0-813b-6af82cef2bd6] Completed 500 Internal Server Error in 2ms
+F, [2019-12-26T18:05:46.239986 #30288] FATAL -- : [bc727449-37f8-43e0-813b-6af82cef2bd6]   
+F, [2019-12-26T18:05:46.240063 #30288] FATAL -- : [bc727449-37f8-43e0-813b-6af82cef2bd6] I18n::InvalidLocale ("favicon" is not a valid locale):
+F, [2019-12-26T18:05:46.240104 #30288] FATAL -- : [bc727449-37f8-43e0-813b-6af82cef2bd6]   
+F, [2019-12-26T18:05:46.240144 #30288] FATAL -- : [bc727449-37f8-43e0-813b-6af82cef2bd6] app/controllers/application_controller.rb:14:in `set_locale'
+I, [2019-12-26T18:05:57.903189 #30288]  INFO -- : [eff67664-57c9-4ded-80f7-744b9c7d568e] Started GET "/en/managers/sign_in" for 127.0.0.1 at 2019-12-26 18:05:57 +0200
+I, [2019-12-26T18:05:57.904047 #30288]  INFO -- : [eff67664-57c9-4ded-80f7-744b9c7d568e] Processing by Managers::SessionsController#new as HTML
+I, [2019-12-26T18:05:57.904106 #30288]  INFO -- : [eff67664-57c9-4ded-80f7-744b9c7d568e]   Parameters: {"locale"=>"en"}
+I, [2019-12-26T18:05:57.907291 #30288]  INFO -- : [eff67664-57c9-4ded-80f7-744b9c7d568e] Completed 500 Internal Server Error in 3ms
+F, [2019-12-26T18:05:57.908126 #30288] FATAL -- : [eff67664-57c9-4ded-80f7-744b9c7d568e]   
+F, [2019-12-26T18:05:57.908170 #30288] FATAL -- : [eff67664-57c9-4ded-80f7-744b9c7d568e] NameError (uninitialized constant Session):
+F, [2019-12-26T18:05:57.908190 #30288] FATAL -- : [eff67664-57c9-4ded-80f7-744b9c7d568e]   
+F, [2019-12-26T18:05:57.908224 #30288] FATAL -- : [eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/core_ext/string/inflections.rb:68:in `constantize'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] cancancan (3.0.1) lib/cancan/controller_resource.rb:65:in `resource_class'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:91:in `resource_base'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] cancancan (3.0.1) lib/cancan/controller_resource_builder.rb:8:in `build_resource'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:108:in `load_resource_instance'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:18:in `load_resource'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] cancancan (3.0.1) lib/cancan/controller_resource.rb:33:in `load_and_authorize_resource'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] cancancan (3.0.1) lib/cancan/controller_resource.rb:17:in `block in add_before_action'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `instance_exec'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:199:in `block in halting'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `each'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] warden (1.2.8) lib/warden/manager.rb:34:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/etag.rb:25:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/head.rb:12:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] railties (5.2.3) lib/rails/engine.rb:524:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+[eff67664-57c9-4ded-80f7-744b9c7d568e] puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-12-26T18:05:58.019629 #30288]  INFO -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e] Started GET "/favicon.ico" for 127.0.0.1 at 2019-12-26 18:05:58 +0200
+I, [2019-12-26T18:05:58.020922 #30288]  INFO -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e] Processing by HomeController#index as 
+I, [2019-12-26T18:05:58.021028 #30288]  INFO -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e]   Parameters: {"locale"=>"favicon"}
+I, [2019-12-26T18:05:58.022653 #30288]  INFO -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e] Completed 500 Internal Server Error in 2ms
+F, [2019-12-26T18:05:58.023416 #30288] FATAL -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e]   
+F, [2019-12-26T18:05:58.023466 #30288] FATAL -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e] I18n::InvalidLocale ("favicon" is not a valid locale):
+F, [2019-12-26T18:05:58.023502 #30288] FATAL -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e]   
+F, [2019-12-26T18:05:58.023534 #30288] FATAL -- : [cd788e62-2ec6-468b-96ce-614ca8b2291e] app/controllers/application_controller.rb:14:in `set_locale'
+I, [2019-12-26T18:06:07.469345 #30288]  INFO -- : [4de1d617-bdc0-480c-9f38-c85655850fa1] Started GET "/en/managers/sign_in" for 127.0.0.1 at 2019-12-26 18:06:07 +0200
+I, [2019-12-26T18:06:07.470086 #30288]  INFO -- : [4de1d617-bdc0-480c-9f38-c85655850fa1] Processing by Managers::SessionsController#new as HTML
+I, [2019-12-26T18:06:07.470151 #30288]  INFO -- : [4de1d617-bdc0-480c-9f38-c85655850fa1]   Parameters: {"locale"=>"en"}
+I, [2019-12-26T18:06:07.473469 #30288]  INFO -- : [4de1d617-bdc0-480c-9f38-c85655850fa1] Completed 500 Internal Server Error in 3ms
+F, [2019-12-26T18:06:07.474408 #30288] FATAL -- : [4de1d617-bdc0-480c-9f38-c85655850fa1]   
+F, [2019-12-26T18:06:07.474486 #30288] FATAL -- : [4de1d617-bdc0-480c-9f38-c85655850fa1] NameError (uninitialized constant Session):
+F, [2019-12-26T18:06:07.474512 #30288] FATAL -- : [4de1d617-bdc0-480c-9f38-c85655850fa1]   
+F, [2019-12-26T18:06:07.474543 #30288] FATAL -- : [4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `const_get'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `each'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `inject'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/inflector/methods.rb:281:in `constantize'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/core_ext/string/inflections.rb:68:in `constantize'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] cancancan (3.0.1) lib/cancan/controller_resource.rb:65:in `resource_class'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:91:in `resource_base'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] cancancan (3.0.1) lib/cancan/controller_resource_builder.rb:8:in `build_resource'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:108:in `load_resource_instance'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] cancancan (3.0.1) lib/cancan/controller_resource_loader.rb:18:in `load_resource'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] cancancan (3.0.1) lib/cancan/controller_resource.rb:33:in `load_and_authorize_resource'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] cancancan (3.0.1) lib/cancan/controller_resource.rb:17:in `block in add_before_action'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `instance_exec'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:199:in `block in halting'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `each'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `block in instrument'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/notifications.rb:168:in `instrument'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] warden (1.2.8) lib/warden/manager.rb:34:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/etag.rb:25:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/head.rb:12:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] railties (5.2.3) lib/rails/engine.rb:524:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+[4de1d617-bdc0-480c-9f38-c85655850fa1] puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-12-26T18:06:07.837222 #30288]  INFO -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5] Started GET "/favicon.ico" for 127.0.0.1 at 2019-12-26 18:06:07 +0200
+I, [2019-12-26T18:06:07.837990 #30288]  INFO -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5] Processing by HomeController#index as 
+I, [2019-12-26T18:06:07.838053 #30288]  INFO -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5]   Parameters: {"locale"=>"favicon"}
+I, [2019-12-26T18:06:07.839289 #30288]  INFO -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5] Completed 500 Internal Server Error in 1ms
+F, [2019-12-26T18:06:07.840016 #30288] FATAL -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5]   
+F, [2019-12-26T18:06:07.840071 #30288] FATAL -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5] I18n::InvalidLocale ("favicon" is not a valid locale):
+F, [2019-12-26T18:06:07.840102 #30288] FATAL -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5]   
+F, [2019-12-26T18:06:07.840134 #30288] FATAL -- : [7a5d6ab3-c750-4cf8-8d54-421d6b45b4c5] app/controllers/application_controller.rb:14:in `set_locale'
