@@ -11,10 +11,10 @@ module DeviseAccessible
   def check_user
     if current_manager
       flash.clear
-      redirect_to('#autenticatedManagerPath') && return
+      redirect_to(cabinets_manager_index_path) && return
     elsif current_user
       flash.clear
-      redirect_to('#autenticatedUserPath') && return
+      redirect_to(cabinets_user_index_path) && return
     end
   end
 end
