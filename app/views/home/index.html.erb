@@ -5,9 +5,9 @@
     <p class="lead">
       <% if manager_signed_in? %>
         <% set_manager_nav_bar %>
-        <%= link_to(t('home.nav-button-manager-text'), '#pathToManager', class: "btn btn-lg btn-secondary", role: "button") %>
+        <%= link_to(t('home.nav-button-manager-text'), cabinets_manager_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
       <% else %>
-        <%= link_to(t('home.nav-button-text'), '#pathToUser', class: "btn btn-lg btn-secondary", role: "button") %>
+        <%= link_to(t('home.nav-button-text'), cabinets_user_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
       <% end %>
     </p>
   </main>
