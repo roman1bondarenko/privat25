@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   scope ':locale', locale: /#{I18n.available_locales.join("|")}/ do
-    resources 'user'
 
     devise_for :users, path: 'users',
                        controllers: { registrations: 'users/registrations',
@@ -12,7 +11,10 @@ Rails.application.routes.draw do
                           controllers: { registrations: 'managers/registrations',
                                          sessions: 'managers/sessions' }
 
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    namespace :cabinets do
+      resources :user, only: :index
+      resources :manager, only: :index
+    end
   end
   resources :cities, only: :index
   get '/:locale' => 'home#index'

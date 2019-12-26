@@ -1,0 +1,2 @@
+module Cabinets::UserCabinetHelper
+end
