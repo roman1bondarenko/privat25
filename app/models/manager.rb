@@ -11,6 +11,7 @@ class Manager < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   has_many :manager_notifications
+  has_many :bill_requests
 
   def full_name
     "#{first_name} #{second_name}"

@@ -11,6 +11,7 @@ class Bill < ApplicationRecord
                             message: ' amount may contain only numbers' }, if: type == types.credit
 
   has_many :manager_notifications
+  has_one :bill_request
 
   enum type: { credit: 0, debit: 1 }
   enum early_closed_status: { not_request_to_close: 0, request_to_close: 1, closed: 2 }
