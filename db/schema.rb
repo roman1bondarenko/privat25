@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_24_150907) do
+ActiveRecord::Schema.define(version: 2019_12_29_074034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2019_12_24_150907) do
     t.text "phone_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "manager_notifications", force: :cascade do |t|
+    t.bigint "manager_id"
+    t.bigint "bill_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_manager_notifications_on_bill_id"
+    t.index ["manager_id"], name: "index_manager_notifications_on_manager_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -84,5 +94,7 @@ ActiveRecord::Schema.define(version: 2019_12_24_150907) do
 
   add_foreign_key "bills", "users"
   add_foreign_key "cities", "countries"
+  add_foreign_key "manager_notifications", "bills"
+  add_foreign_key "manager_notifications", "managers"
   add_foreign_key "users", "cities"
 end

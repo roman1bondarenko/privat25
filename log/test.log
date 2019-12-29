@@ -40243,3 +40243,23 @@ FOREIGN KEY ("user_id")
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7925793018725448825)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7925793018725448825)[0m
+  [1m[35m (26.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateManagerNotifications (20191229074034)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (302.6ms)[0m  [1m[35mCREATE TABLE "manager_notifications" ("id" bigserial primary key, "manager_id" bigint, "bill_id" bigint, "message" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_91359b850e"
+FOREIGN KEY ("manager_id")
+  REFERENCES "managers" ("id")
+, CONSTRAINT "fk_rails_ec1a879cd5"
+FOREIGN KEY ("bill_id")
+  REFERENCES "bills" ("id")
+)[0m
+  [1m[35m (39.2ms)[0m  [1m[35mCREATE  INDEX  "index_manager_notifications_on_manager_id" ON "manager_notifications"  ("manager_id")[0m
+  [1m[35m (22.8ms)[0m  [1m[35mCREATE  INDEX  "index_manager_notifications_on_bill_id" ON "manager_notifications"  ("bill_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191229074034"]]
+  [1m[35m (9.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (28.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7925793018725448825)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

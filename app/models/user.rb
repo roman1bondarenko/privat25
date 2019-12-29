@@ -16,7 +16,6 @@ class User < ApplicationRecord
 
   enum gender: { male: 0, female: 1 }
 
-  # TODO: fix this?
   def city=(city_id)
     super(City.find(city_id))
   end
