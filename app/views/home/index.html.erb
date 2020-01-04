@@ -1,14 +1,16 @@
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading"><%= t 'home.describe-title' %></h1>
-    <p class="lead"> <%= t 'home.describe' %> </p>
-    <p class="lead">
-      <% if manager_signed_in? %>
-        <% set_manager_nav_bar %>
-        <%= link_to(t('home.nav-button-manager-text'), cabinets_manager_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
-      <% else %>
-        <%= link_to(t('home.nav-button-text'), cabinets_user_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
-      <% end %>
-    </p>
-  </main>
+<div class="container">
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+    <main role="main" class="inner cover">
+      <h1 class="cover-heading"><%= t 'home.describe-title' %></h1>
+      <p class="lead"> <%= t 'home.describe' %> </p>
+      <p class="lead">
+        <% if manager_signed_in? %>
+          <% set_manager_nav_bar %>
+          <%= link_to(t('home.nav-button-manager-text'), cabinets_manager_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
+        <% else %>
+          <%= link_to(t('home.nav-button-text'), cabinets_user_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
+        <% end %>
+      </p>
+    </main>
+  </div>
 </div>

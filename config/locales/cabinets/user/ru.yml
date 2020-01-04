@@ -1,0 +1,9 @@
+ru:
+  cabinets:
+    user:
+      side-nav:
+        my-account: 'Мой аккаунт'
+        my-bills: 'Мои счета'
+        new-bill: 'Новый счет'
+        transactions: 'Платежи'
+        transactions-history: 'История'

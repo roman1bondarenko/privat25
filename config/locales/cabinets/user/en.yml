@@ -1,0 +1,9 @@
+en:
+  cabinets:
+    user:
+      side-nav:
+        my-account: 'My account'
+        my-bills: 'My bills'
+        new-bill: 'New bill'
+        transactions: 'Transactions'
+        transactions-history: 'History'

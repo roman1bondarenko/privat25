@@ -1,1 +1,49 @@
-<p>User cabinet</p>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-md-block bg-light sidebar min-vh-100">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <% nav_buttons = [{icon_name: 'user', text_locale_name: 'cabinets.user.side-nav.my-account', href: cabinets_user_index_path},
+                            {icon_name: 'credit-card', text_locale_name: 'cabinets.user.side-nav.my-bills', href: '#'},
+                            {icon_name: 'plus-square', text_locale_name: 'cabinets.user.side-nav.new-bill', href: '#'},
+                            {icon_name: 'dollar-sign', text_locale_name: 'cabinets.user.side-nav.transactions', href: '#'},
+                            {icon_name: 'archive', text_locale_name: 'cabinets.user.side-nav.transactions-history', href: '#'}] %>
+          <% nav_buttons.each do |item| %>
+            <li class="nav-item">
+              <a class="nav-link active" href="<%= item[:href] %>">
+
+                <i data-feather="<%= item[:icon_name] %>" style="color: #2E2F30"></i>
+
+                <%= t(item[:text_locale_name]) %>
+              </a>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </nav>
+
+    <div id="main_cabinet_body">
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+          <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+          </div>
+          <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+          <h1 class="h2"><%= t('global.welcome') + " #{current_user.first_name}" %></h1>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+</div>
+<script>
+    feather.replace()
+</script>

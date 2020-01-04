@@ -5,11 +5,6 @@ class Bill < ApplicationRecord
   validates :amount, numericality: { only_integer: true,
                                      message: ' amount may contain only numbers' }
 
-  validates :regular_replenishment_amount, presence: true, if: type == types.credit
-  validates :regular_replenishment_amount,
-            numericality: { only_integer: true,
-                            message: ' amount may contain only numbers' }, if: type == types.credit
-
   has_many :manager_notifications
   has_one :bill_request
 
