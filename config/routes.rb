@@ -17,6 +17,6 @@ Rails.application.routes.draw do
     end
   end
   resources :cities, only: :index
-  get '/:locale' => 'home#index'
   get '', to: redirect("/#{I18n.locale}/")
+  get '/:locale' => 'home#index'
 end
