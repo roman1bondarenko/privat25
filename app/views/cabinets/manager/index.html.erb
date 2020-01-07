@@ -1,3 +1,8 @@
 <% set_manager_nav_bar %>
-<p>Manager cabinet</p>
-<p> <%= @manager_name %> </p>
+
+<% content_for :cabinet_main do %>
+  <%= set_main_title "#{t('global.welcome')} #{current_manager.first_name}" %>
+  <p>text here</p>
+<% end %>
+
+<% set_manager_side_bar %>

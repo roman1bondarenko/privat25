@@ -1,0 +1,8 @@
+en:
+  cabinets:
+    manager:
+      side-nav:
+        new-request-bills: 'Bill requests'
+        notifications: 'Notifications'
+        token-for-new-manager: 'Generate token'
+        statistics: 'Bill statistic'

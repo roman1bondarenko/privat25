@@ -25,6 +25,12 @@
 
 </div>
 
+<% if content_for?(:manager_cabinet_side_bar) %>
+  <%= yield(:manager_cabinet_side_bar) %>
+<% elsif content_for?(:user_cabinet_side_bar)%>
+  <%= yield(:user_cabinet_side_bar) %>
+<% end %>
+
 <%= yield %>
 
 </body>

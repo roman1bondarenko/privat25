@@ -1,0 +1,8 @@
+ru:
+  cabinets:
+    manager:
+      side-nav:
+        new-request-bills: 'Запросы на счета'
+        notifications: 'Уведомления'
+        token-for-new-manager: 'Создать токен'
+        statistics: 'Статистика счета'
