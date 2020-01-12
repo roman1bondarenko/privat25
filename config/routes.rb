@@ -12,11 +12,13 @@ Rails.application.routes.draw do
                                          sessions: 'managers/sessions' }
 
     namespace :cabinets do
-      resources :user, only: :index
+      resources :user, only: :index do
+        resources :bills, only: [:index, :new]
+      end
       resources :manager, only: :index
     end
   end
-  resources :cities, only: :index
+  resources :cities
   get '', to: redirect("/#{I18n.locale}/")
   get '/:locale' => 'home#index'
 end
