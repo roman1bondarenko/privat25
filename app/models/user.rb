@@ -16,13 +16,12 @@ class User < ApplicationRecord
 
   enum gender: { male: 0, female: 1 }
 
-  def city=(city_id)
-    super(City.find(city_id))
+  def city(city_id)
+    this.city = City.find(city_id)
   end
 
   def gender=(value)
-    value = value.to_i
-    super(value)
+    super(value.to_i)
   end
 
   def full_name
