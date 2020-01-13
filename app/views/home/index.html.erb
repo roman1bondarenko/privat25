@@ -8,7 +8,9 @@
           <% set_manager_nav_bar %>
           <%= link_to(t('home.nav-button-manager-text'), cabinets_manager_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
         <% else %>
-          <%= link_to(t('home.nav-button-text'), cabinets_user_index_path, class: "btn btn-lg btn-secondary", role: "button") %>
+          <% until current_user.nil? %>
+            <%= link_to(t('home.nav-button-text'), cabinets_user_path(current_user.id), class: "btn btn-lg btn-secondary", role: "button") %>
+          <% end %>
         <% end %>
       </p>
     </main>

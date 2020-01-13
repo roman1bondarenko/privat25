@@ -14,7 +14,7 @@ module DeviseAccessible
       redirect_to(cabinets_manager_index_path) && return
     elsif current_user
       flash.clear
-      redirect_to(cabinets_user_index_path) && return
+      redirect_to(cabinets_user_path(current_user.id)) && return
     end
   end
 end

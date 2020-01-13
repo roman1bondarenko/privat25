@@ -7,7 +7,7 @@
                             {icon_name: 'credit-card', text_locale_name: 'cabinets.user.side-nav.my-bills', href: cabinets_user_bills_path(current_user.id)},
                             {icon_name: 'plus-square', text_locale_name: 'cabinets.user.side-nav.new-bill', href: new_cabinets_user_bill_path(current_user.id)},
                             {icon_name: 'dollar-sign', text_locale_name: 'cabinets.user.side-nav.transactions', href: cabinets_user_transactions_path(current_user.id)},
-                            {icon_name: 'archive', text_locale_name: 'cabinets.user.side-nav.transactions-history', href: '#'}] %>
+                            {icon_name: 'archive', text_locale_name: 'cabinets.user.side-nav.transactions-history', href: cabinets_user_history_index_path(current_user.id)}] %>
           <% nav_buttons.each do |item| %>
             <li class="nav-item">
               <a class="nav-link active" href="<%= item[:href] %>">
