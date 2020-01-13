@@ -2,11 +2,15 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_locale
-  
+
   # load_and_authorize_resource
 
   rescue_from CanCan::AccessDenied do
     redirect_to '/403.html'
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    redirect_to '/404.html'
   end
 
   def current_ability

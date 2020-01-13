@@ -12,8 +12,9 @@ Rails.application.routes.draw do
                                          sessions: 'managers/sessions' }
 
     namespace :cabinets do
-      resources :user, only: :index do
+      resources :user, only: :show do
         resources :bills, only: [:index, :new]
+        resources :transactions, only: [:index, :new]
       end
       resources :manager, only: :index
     end

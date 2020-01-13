@@ -3,10 +3,10 @@
     <nav class="col-md-2 d-md-block bg-light sidebar min-vh-100">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
-          <% nav_buttons = [{icon_name: 'user', text_locale_name: 'cabinets.user.side-nav.my-account', href: cabinets_user_index_path},
+          <% nav_buttons = [{icon_name: 'user', text_locale_name: 'cabinets.user.side-nav.my-account', href: cabinets_user_path(current_user.id)},
                             {icon_name: 'credit-card', text_locale_name: 'cabinets.user.side-nav.my-bills', href: cabinets_user_bills_path(current_user.id)},
                             {icon_name: 'plus-square', text_locale_name: 'cabinets.user.side-nav.new-bill', href: new_cabinets_user_bill_path(current_user.id)},
-                            {icon_name: 'dollar-sign', text_locale_name: 'cabinets.user.side-nav.transactions', href: '#'},
+                            {icon_name: 'dollar-sign', text_locale_name: 'cabinets.user.side-nav.transactions', href: cabinets_user_transactions_path(current_user.id)},
                             {icon_name: 'archive', text_locale_name: 'cabinets.user.side-nav.transactions-history', href: '#'}] %>
           <% nav_buttons.each do |item| %>
             <li class="nav-item">

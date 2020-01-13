@@ -3,6 +3,7 @@ class Cabinets::BillsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    # @bill = Bill.first
   end
 
   def new
